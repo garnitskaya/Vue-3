@@ -32,7 +32,7 @@ const items = [
 </script>
 
 <template>
-  <div class="merch-block grey-bg">
+  <div class="merch-block grey-bg" id="merch">
     <container
       title="Мерч"
       :link="{ href: '#', label: 'Переглянути весь мерч' }"

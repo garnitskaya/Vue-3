@@ -31,7 +31,7 @@ const items = [
 </script>
 
 <template>
-  <div class="new-block grey-bg">
+  <div class="new-block grey-bg" id="news">
     <container title="Новини" :link="{ href: '#', label: 'Всі новини' }">
       <div class="new-block__items">
         <new-item v-for="item in items" :key="item" :item="item" />

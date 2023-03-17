@@ -11,7 +11,7 @@ const linksSocials = [
 </script>
 
 <template>
-  <div class="fantytila-block grey-bg">
+  <div class="fantytila-block grey-bg" id="fantytila">
     <container>
       <div class="fantytila-block__wrap">
         <div class="fantytila-block__img">

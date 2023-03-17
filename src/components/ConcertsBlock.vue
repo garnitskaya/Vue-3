@@ -71,7 +71,7 @@ const items = [
 </script>
 
 <template>
-  <div class="concerts-block">
+  <div id="concerts" class="concerts-block">
     <container title="Концерти" :link="{ href: '#', label: 'Всі дати' }">
       <div class="concerts-block__items">
         <concert-item v-for="item in items" :key="item.id" :item="item" />

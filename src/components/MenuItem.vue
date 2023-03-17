@@ -13,30 +13,30 @@ const openMenu = () => {
 
 const links = [
   { name: "Головна", id: "/" },
-  { name: "Концерти", id: "/concerts" },
-  { name: "Релізи", id: "/releases" },
-  { name: "Новини", id: "/news" },
-  { name: "Мерч", id: "/merch" },
-  { name: "Відео", id: "/video" },
-  { name: "Фото", id: "/photo" },
-  { name: "Про гурт", id: "/about" },
-  { name: "Контакти", id: "/contacts" },
-  { name: "Фантитіла", id: "/fantytila" },
+  { name: "Концерти", id: "#concerts" },
+  { name: "Релізи", id: "#releases" },
+  { name: "Новини", id: "#news" },
+  { name: "Мерч", id: "#merch" },
+  { name: "Відео", id: "#video" },
+  { name: "Фото", id: "#photo" },
+  { name: "Про гурт", id: "#about" },
+  { name: "Контакти", id: "#contacts" },
+  { name: "Фантитіла", id: "#fantytila" },
 ];
 </script>
 
 <template>
   <nav :class="['menu', { active: active }]">
     <div class="menu__links">
-      <router-link
+      <a
         @click="openMenu"
         v-for="link in links"
         :key="link"
-        :to="link.id"
+        :href="link.id"
         class="menu__link"
       >
         {{ link.name }}
-      </router-link>
+      </a>
     </div>
     <div class="menu__lang">
       <img src="/icons/ua.svg" alt="ua" />

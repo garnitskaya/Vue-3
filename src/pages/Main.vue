@@ -3,7 +3,7 @@ import BannerBlock from "@/components/BannerBlock.vue";
 import ConcertsBlock from "@/components/ConcertsBlock.vue";
 import PremiereBlock from "@/components/PremiereBlock.vue";
 import MerchBlock from "@/components/MerchBlock.vue";
-import ReleasesBlock from "@/components/ReleasesBlock.vue";
+import PromoBlock from "@/components/PromoBlock.vue";
 import NewsBlock from "@/components/NewsBlock.vue";
 import InstagramBlock from "@/components/InstagramBlock.vue";
 import FantytilaBlock from "@/components/FantytilaBlock.vue";
@@ -15,7 +15,7 @@ import ContactsBlock from "@/components/ContactsBlock.vue";
   <concerts-block />
   <premiere-block />
   <merch-block />
-  <releases-block />
+  <promo-block />
   <news-block />
   <instagram-block />
   <fantytila-block />

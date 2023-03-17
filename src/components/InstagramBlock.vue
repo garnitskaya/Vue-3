@@ -4,7 +4,7 @@ import UImg from "@/components/UI/UImg.vue";
 </script>
 
 <template>
-  <div class="instagram-block">
+  <div class="instagram-block" id="about">
     <container
       title="АНТИТІЛА в Instagram"
       :link="{ href: '#', label: 'Підписатися на Instagram' }"

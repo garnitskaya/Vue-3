@@ -39,7 +39,7 @@ const contactsItems = [
 </script>
 
 <template>
-  <div class="contacts-block grey-bg">
+  <div class="contacts-block grey-bg" id="contacts">
     <container title="Контакти">
       <div class="contacts-block__items">
         <contacts-item
