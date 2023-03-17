@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Albertus Nova';
+  src: local('Albertus Nova Black'), local('AlbertusNovaBlack'),
+    url('/fonts/AlbertusNovaBlack.woff2') format('woff2'),
+    url('/fonts/AlbertusNovaBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Albertus Nova';
+  src: local('Albertus Nova Light'), local('AlbertusNovaLight'),
+    url('/fonts/AlbertusNovaLight.woff2') format('woff2'),
+    url('/fonts/AlbertusNovaLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Albertus Nova';
+  src: local('Albertus Nova Thin'), local('AlbertusNovaThin'),
+    url('/fonts/AlbertusNovaThin.woff2') format('woff2'),
+    url('/fonts/AlbertusNovaThin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Albertus Nova';
+  src: local('Albertus Nova'), local('AlbertusNova'),
+    url('/fonts/AlbertusNova.woff2') format('woff2'),
+    url('/fonts/AlbertusNova.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Albertus Nova';
+  src: local('Albertus Nova Bold'), local('AlbertusNova-Bold'),
+    url('/fonts/AlbertusNova-Bold.woff2') format('woff2'),
+    url('/fonts/AlbertusNova-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
