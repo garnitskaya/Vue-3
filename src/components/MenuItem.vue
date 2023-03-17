@@ -74,6 +74,9 @@ const links = [
   }
   &__lang {
     margin-top: 16px;
+    > img {
+      cursor: pointer;
+    }
     :first-child {
       margin-right: 24px;
     }

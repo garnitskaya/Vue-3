@@ -19,8 +19,6 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .btn {
-  /*padding: 7px 0;*/
-  height: max-content;
   width: 138px;
   height: 40px;
   font-size: 1rem;
@@ -55,7 +53,6 @@ const props = defineProps({
     }
   }
   &_small {
-    /*padding: 5px 0;*/
     width: 100px;
     height: 28px;
     font-size: 0.75rem;
@@ -65,6 +62,12 @@ const props = defineProps({
       background: var(--red);
       color: var(--white);
       border-color: var(--red);
+    }
+  }
+  &_big {
+    width: 276px;
+    @media (max-width: 768px) {
+      width: 304px;
     }
   }
 }

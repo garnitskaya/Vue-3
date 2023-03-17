@@ -13,10 +13,14 @@ const linksSocials = [
 
 <template>
   <header-menu :linksSocials="linksSocials" />
-  <router-view />
+  <main class="main-container">
+    <router-view />
+  </main>
   <footer-block :linksSocials="linksSocials" />
 </template>
 
 <style lang="scss">
-/*@import "./styles/global";*/
+.main-container {
+  flex: 1;
+}
 </style>
