@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import SocialLink from "@/components/SocialLink.vue";
+import MenuItem from "@/components/MenuItem.vue";
 
 const props = defineProps({
   linksSocials: {
@@ -9,25 +10,43 @@ const props = defineProps({
   },
 });
 
-const activeBurger = ref(false);
+const isMenuOpen = ref(false);
+const menuContainer = ref(null);
+
+const openMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+
+const handleDocumentClick = (event) => {
+  if (!menuContainer.value.contains(event.target)) {
+    isMenuOpen.value = false;
+  }
+};
+
+onMounted(() => {
+  document.addEventListener("click", handleDocumentClick);
+});
+onBeforeUnmount(() => {
+  document.removeEventListener("click", handleDocumentClick);
+});
 </script>
 
 <template>
   <header class="header">
     <div class="header__container">
-      <div class="hamburger">
-        <div
-          :class="[
-            'hamburger__block',
-            { hamburger__block_active: activeBurger },
-          ]"
-          @click="activeBurger = !activeBurger"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
+      <div ref="menuContainer" class="header__menu-wrap">
+        <menu-item :active="isMenuOpen" @openMenu="openMenu" />
+        <div class="hamburger">
+          <div
+            :class="['hamburger__block', { active: isMenuOpen }]"
+            @click="openMenu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="hamburger__label">Меню</div>
         </div>
-        <div class="hamburger__label">Меню</div>
       </div>
       <div class="header__links">
         <social-link
@@ -52,6 +71,7 @@ const activeBurger = ref(false);
   z-index: 10;
 
   &__container {
+    position: relative;
     width: calc(1214px + 30px);
     display: flex;
     align-items: center;
@@ -77,22 +97,6 @@ const activeBurger = ref(false);
     width: 22px;
     height: 19px;
 
-    &_active {
-      span {
-        &:nth-child(1) {
-          transform: translateY(9px) rotate(45deg);
-        }
-
-        &:nth-child(2) {
-          display: none;
-        }
-
-        &:nth-child(3) {
-          transform: translateY(-7px) rotate(-45deg);
-        }
-      }
-    }
-
     span {
       display: block;
       width: 100%;
@@ -108,6 +112,24 @@ const activeBurger = ref(false);
     font-size: 0.875rem;
     line-height: 1.25rem;
     color: var(--white);
+  }
+
+  .active {
+    span {
+      &:nth-child(1) {
+        background-color: var(--black);
+        transform: translateY(9px) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        display: none;
+      }
+
+      &:nth-child(3) {
+        background-color: var(--black);
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
   }
 }
 </style>
