@@ -2,6 +2,17 @@
 import Container from "@/components/UI/Container.vue";
 import ConcertItem from "@/components/ConcertItem.vue";
 
+const props = defineProps({
+  quantity: {
+    type: Number,
+    default: -1,
+  },
+  link: {
+    type: Boolean,
+    default: false,
+  },
+});
+
 const items = [
   {
     id: 1,
@@ -67,14 +78,67 @@ const items = [
     canceled: false,
     delayed: false,
   },
+
+  {
+    id: 8,
+    date: ["3", "вересня"],
+    city: "Харків",
+    place: "Палац спорту",
+    active: true,
+    canceled: false,
+    delayed: false,
+  },
+  {
+    id: 9,
+    date: ["23", "вересня"],
+    city: "Харків",
+    place: "Палац спорту",
+    active: true,
+    canceled: false,
+    delayed: false,
+  },
+  {
+    id: 10,
+    date: ["5", "жовтня"],
+    city: "Харків",
+    place: "Палац спорту",
+    active: false,
+    canceled: false,
+    delayed: true,
+  },
+  {
+    id: 11,
+    date: ["3", "жовтня"],
+    city: "Харків",
+    place: "Палац спорту",
+    active: false,
+    canceled: false,
+    delayed: false,
+  },
+  {
+    id: 12,
+    date: ["23", "грудня"],
+    city: "Харків",
+    place: "Палац спорту",
+    active: false,
+    canceled: false,
+    delayed: false,
+  },
 ];
 </script>
 
 <template>
   <div id="concerts" class="concerts-block">
-    <container title="Концерти" :link="{ href: '#', label: 'Всі дати' }">
+    <container
+      title="Концерти"
+      :link="link && { href: 'concerts', label: 'Всі дати' }"
+    >
       <div class="concerts-block__items">
-        <concert-item v-for="item in items" :key="item.id" :item="item" />
+        <concert-item
+          v-for="item in items.slice(0, quantity)"
+          :key="item.id"
+          :item="item"
+        />
       </div>
     </container>
   </div>

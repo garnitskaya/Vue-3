@@ -11,8 +11,8 @@ import ContactsBlock from "@/components/ContactsBlock.vue";
 </script>
 
 <template>
-  <banner-block />
-  <concerts-block />
+  <banner-block img="/images/head.jpg" btn />
+  <concerts-block quantity="7" link />
   <premiere-block />
   <merch-block />
   <promo-block />

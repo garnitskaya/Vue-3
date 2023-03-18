@@ -9,6 +9,7 @@ const props = defineProps({
     required: false,
   },
 });
+console.log(props.link);
 </script>
 
 <template>
@@ -16,9 +17,9 @@ const props = defineProps({
     <h2 v-if="title" class="container__title">{{ title }}</h2>
     <slot />
     <div v-if="link" class="container__block">
-      <a class="container__link" :href="link.href" target="_blank">{{
-        link.label
-      }}</a>
+      <router-link class="container__link" :to="link.href" target="_blank">
+        {{ link.label }}
+      </router-link>
     </div>
   </div>
 </template>

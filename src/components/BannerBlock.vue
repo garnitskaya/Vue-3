@@ -1,12 +1,24 @@
 <script setup>
 import UImg from "@/components/UI/UImg.vue";
+
+const props = defineProps({
+  img: {
+    type: String,
+    required: true,
+  },
+  btn: {
+    type: Boolean,
+    default: false,
+  },
+});
 </script>
 
 <template>
   <div class="banner">
     <h1></h1>
-    <u-img src="/images/head.jpg" alt="banner" />
-    <button class="banner__btn">
+    <u-img :src="img" alt="banner" />
+    <!--<u-img :src="/images/head.jpg" alt="banner" />-->
+    <button v-if="btn" class="banner__btn">
       <svg
         width="32"
         height="32"
