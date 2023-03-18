@@ -6,7 +6,7 @@ import UImg from "@/components/UI/UImg.vue";
 <template>
   <container
     title="Релізи"
-    :link="{ href: '#', label: 'Всі релізи' }"
+    :link="{ href: 'releases', label: 'Всі релізи' }"
     id="releases"
   >
     <div class="releases__items">
@@ -24,7 +24,7 @@ import UImg from "@/components/UI/UImg.vue";
 
 
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .releases {
   &__items {
     display: flex;

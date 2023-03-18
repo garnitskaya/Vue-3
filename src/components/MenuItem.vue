@@ -13,15 +13,15 @@ const openMenu = () => {
 
 const links = [
   { name: "Головна", id: "/" },
-  { name: "Концерти", id: "#concerts" },
-  { name: "Релізи", id: "#releases" },
-  { name: "Новини", id: "#news" },
-  { name: "Мерч", id: "#merch" },
-  { name: "Відео", id: "#video" },
-  { name: "Фото", id: "#photo" },
-  { name: "Про гурт", id: "#about" },
-  { name: "Контакти", id: "#contacts" },
-  { name: "Фантитіла", id: "#fantytila" },
+  { name: "Концерти", id: "/#concerts" },
+  { name: "Релізи", id: "/#releases" },
+  { name: "Новини", id: "/#news" },
+  { name: "Мерч", id: "/#merch" },
+  { name: "Відео", id: "/#video" },
+  { name: "Фото", id: "/#photo" },
+  { name: "Про гурт", id: "/#about" },
+  { name: "Контакти", id: "/#contacts" },
+  { name: "Фантитіла", id: "/#fantytila" },
 ];
 </script>
 

@@ -9,7 +9,6 @@ const props = defineProps({
     required: false,
   },
 });
-console.log(props.link);
 </script>
 
 <template>
@@ -34,8 +33,8 @@ console.log(props.link);
 
   &__title {
     margin: 0 0 32px 0;
-    font-size: 2.14rem;
-    line-height: 3rem;
+    font-size: 1.875rem;
+    line-height: 2.625rem;
     text-align: center;
   }
 
