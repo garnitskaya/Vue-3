@@ -23,7 +23,13 @@ const props = defineProps({
     <div class="item__text">{{ item.text }}</div>
     <div class="item__block">
       <div class="item__data">{{ item.data }}</div>
-      <u-button styles="outlined" size="small">Читати далі</u-button>
+      <u-button
+        styles="outlined"
+        size="small"
+        @click="$router.push('/news/' + item.id)"
+      >
+        Читати далі
+      </u-button>
     </div>
   </div>
 </template>
@@ -37,7 +43,7 @@ const props = defineProps({
   flex-direction: column;
 
   &__wrap {
-    max-height: 186px;
+    height: 186px;
   }
   &__title {
     margin-top: 16px;

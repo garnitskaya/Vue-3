@@ -36,7 +36,6 @@ const filterChange = (name) => {
 
 <style lang="scss" scoped>
 .filters {
-  margin-top: -25px;
   display: flex;
   justify-content: center;
   gap: 24px;

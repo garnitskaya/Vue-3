@@ -3,6 +3,7 @@ import Main from '../pages/Main.vue';
 import Concerts from '../pages/Concerts.vue';
 import Releases from '../pages/Releases.vue';
 import News from '../pages/News.vue';
+import NewSingle from '../pages/NewSingle.vue';
 import NotFound from '../pages/NotFound.vue';
 
 const router = createRouter({
@@ -23,6 +24,10 @@ const router = createRouter({
     {
       path: '/news',
       component: News,
+    },
+    {
+      path: '/news/:id',
+      component: NewSingle,
     },
     {
       path: '/:pathMatch(.*)*',

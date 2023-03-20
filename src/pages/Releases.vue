@@ -16,7 +16,7 @@ const filterChange = (name) => {
   <banner-block img="/images/bg.jpg" />
 
   <div class="releases">
-    <container title="Релізи">
+    <container title="Релізи" mb="8">
       <filters-item :filter="filter" @changeFilter="filterChange" />
       <div class="releases__items">
         <div class="releases__item border-class" v-for="n in 10" :key="n">

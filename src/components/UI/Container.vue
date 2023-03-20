@@ -8,15 +8,42 @@ const props = defineProps({
     type: Object,
     required: false,
   },
+  external: {
+    type: Boolean,
+    required: false,
+  },
+  mb: {
+    type: Number,
+    default: 32,
+  },
 });
 </script>
 
 <template>
   <div class="container">
-    <h2 v-if="title" class="container__title">{{ title }}</h2>
+    <h2
+      v-if="title"
+      :style="{ 'margin-bottom': `${mb}px` }"
+      class="container__title"
+    >
+      {{ title }}
+    </h2>
     <slot />
     <div v-if="link" class="container__block">
-      <router-link class="container__link" :to="link.href" target="_blank">
+      <a
+        v-if="external"
+        class="container__link"
+        :href="link.href"
+        target="_blank"
+      >
+        {{ link.label }}
+      </a>
+      <router-link
+        v-else
+        class="container__link"
+        :to="link.href"
+        target="_blank"
+      >
         {{ link.label }}
       </router-link>
     </div>
@@ -32,7 +59,7 @@ const props = defineProps({
   margin: 0 auto;
 
   &__title {
-    margin: 0 0 32px 0;
+    /*margin: 0 0 32px 0;*/
     font-size: 1.875rem;
     line-height: 2.625rem;
     text-align: center;
