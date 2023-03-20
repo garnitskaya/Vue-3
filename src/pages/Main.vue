@@ -12,11 +12,11 @@ import ContactsBlock from "@/components/ContactsBlock.vue";
 
 <template>
   <banner-block img="/images/head.jpg" btn />
-  <concerts-block quantity="7" link />
+  <concerts-block :quantity="7" link />
   <premiere-block />
   <merch-block />
   <promo-block />
-  <news-block />
+  <news-block :quantity="4" link />
   <instagram-block />
   <fantytila-block />
   <contacts-block />

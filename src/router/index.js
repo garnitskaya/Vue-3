@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Main from '../pages/Main.vue';
 import Concerts from '../pages/Concerts.vue';
 import Releases from '../pages/Releases.vue';
+import News from '../pages/News.vue';
 import NotFound from '../pages/NotFound.vue';
 
 const router = createRouter({
@@ -18,6 +19,10 @@ const router = createRouter({
     {
       path: '/releases',
       component: Releases,
+    },
+    {
+      path: '/news',
+      component: News,
     },
     {
       path: '/:pathMatch(.*)*',
