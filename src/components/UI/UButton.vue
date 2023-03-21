@@ -1,12 +1,17 @@
-<script setup>
-const props = defineProps({
-  styles: {
-    type: String,
-    required: true,
-  },
-  size: {
-    type: String,
-    required: false,
+<script>
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "u-button",
+  props: {
+    styles: {
+      type: String,
+      required: true,
+    },
+    size: {
+      type: String,
+      required: false,
+    },
   },
 });
 </script>

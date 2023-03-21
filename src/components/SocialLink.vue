@@ -1,6 +1,4 @@
 <script setup>
-import UImg from "@/components/UI/UImg.vue";
-
 const props = defineProps({
   link: {
     type: Object,

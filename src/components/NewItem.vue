@@ -1,7 +1,4 @@
 <script setup>
-import UImg from "@/components/UI/UImg.vue";
-import UButton from "@/components/UI/UButton.vue";
-
 const props = defineProps({
   item: {
     type: Object,

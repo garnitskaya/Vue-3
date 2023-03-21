@@ -1,5 +1,13 @@
-<script setup>
-const props = defineProps(["src", "alt"]);
+<script>
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "u-img",
+  props: {
+    src: String,
+    alt: String,
+  },
+});
 </script>
 
 <template>

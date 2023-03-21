@@ -3,8 +3,6 @@ import BannerBlock from "@/components/BannerBlock.vue";
 import NewsBlock from "@/components/NewsBlock.vue";
 import VideoItem from "@/components/VideoItem.vue";
 import SocialLink from "@/components/SocialLink.vue";
-import Container from "@/components/UI/Container.vue";
-import UImg from "@/components/UI/UIMg.vue";
 
 const linksSocials = [
   { name: "fb-black" },
@@ -14,9 +12,7 @@ const linksSocials = [
 </script>
 
 <template>
-  <div class="new">
-    <banner-block img="/images/bg.jpg" />
-
+  <wrapper-page class="new" p="0">
     <div class="new__wrapper">
       <container title="Все буде так, як ти захочеш!" mb="0">
         <div class="new__date">12.11.2021</div>
@@ -119,7 +115,7 @@ const linksSocials = [
       </container>
     </div>
     <news-block :quantity="4" />
-  </div>
+  </wrapper-page>
 </template>
 
 <style lang="scss" scoped>

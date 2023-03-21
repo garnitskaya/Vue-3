@@ -1,6 +1,4 @@
 <script setup>
-import UButton from "@/components/UI/UButton.vue";
-import UImg from "@/components/UI/UImg.vue";
 </script>
 
 <template>

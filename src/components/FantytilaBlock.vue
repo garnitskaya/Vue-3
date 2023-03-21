@@ -1,6 +1,4 @@
 <script setup>
-import Container from "@/components/UI/Container.vue";
-import UImg from "@/components/UI/UImg.vue";
 import SocialLink from "@/components/SocialLink.vue";
 
 const linksSocials = [

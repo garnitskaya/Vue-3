@@ -1,5 +1,4 @@
 <script setup>
-import Container from "@/components/UI/Container.vue";
 import NewItem from "@/components/NewItem.vue";
 
 const props = defineProps({

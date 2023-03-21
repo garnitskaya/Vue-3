@@ -1,21 +1,27 @@
-<script setup>
-const props = defineProps({
-  title: {
-    type: String,
-    required: false,
+<script>
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "container",
+  props: {
+    title: {
+      type: String,
+      required: false,
+    },
+    link: {
+      type: Object,
+      required: false,
+    },
+    external: {
+      type: Boolean,
+      required: false,
+    },
+    mb: {
+      type: Number,
+      default: 32,
+    },
   },
-  link: {
-    type: Object,
-    required: false,
-  },
-  external: {
-    type: Boolean,
-    required: false,
-  },
-  mb: {
-    type: Number,
-    default: 32,
-  },
+  setup() {},
 });
 </script>
 
@@ -59,7 +65,6 @@ const props = defineProps({
   margin: 0 auto;
 
   &__title {
-    /*margin: 0 0 32px 0;*/
     font-size: 1.875rem;
     line-height: 2.625rem;
     text-align: center;

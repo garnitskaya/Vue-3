@@ -1,6 +1,4 @@
 <script setup>
-import UImg from "@/components/UI/UImg.vue";
-
 const props = defineProps({
   img: {
     type: String,
@@ -17,7 +15,7 @@ const props = defineProps({
   <div class="banner">
     <h1></h1>
     <u-img :src="img" alt="banner" />
-    <!--<u-img :src="/images/head.jpg" alt="banner" />-->
+
     <button v-if="btn" class="banner__btn">
       <svg
         width="32"

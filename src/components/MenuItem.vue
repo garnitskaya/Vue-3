@@ -19,7 +19,7 @@ const links = [
   { name: "Мерч", id: "/#merch" },
   { name: "Відео", id: "/#video" },
   { name: "Фото", id: "/#photo" },
-  { name: "Про гурт", id: "/#about" },
+  { name: "Про гурт", id: "/about" },
   { name: "Контакти", id: "/#contacts" },
   { name: "Фантитіла", id: "/#fantytila" },
 ];

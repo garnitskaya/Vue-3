@@ -1,5 +1,4 @@
 <script setup>
-import Container from "@/components/UI/Container.vue";
 import MerchItem from "@/components/MerchItem.vue";
 
 const items = [
@@ -38,7 +37,12 @@ const items = [
       :link="{ href: '#', label: 'Переглянути весь мерч' }"
     >
       <div class="merch-block__items">
-        <merch-item v-for="item in items" :key="item" :item="item" />
+        <merch-item
+          class="merch-block__item"
+          v-for="item in items"
+          :key="item"
+          :item="item"
+        />
       </div>
     </container>
   </div>
@@ -51,6 +55,9 @@ const items = [
   &__items {
     display: flex;
     gap: 24px;
+  }
+  &__item {
+    flex: 1;
   }
 }
 </style>

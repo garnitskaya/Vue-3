@@ -1,5 +1,4 @@
 <script setup>
-import UImg from "@/components/UI/UImg.vue";
 </script>
 
 <template>

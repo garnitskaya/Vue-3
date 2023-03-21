@@ -2,8 +2,6 @@
 import { ref } from "vue";
 import BannerBlock from "@/components/BannerBlock.vue";
 import FiltersItem from "@/components/FiltersItem.vue";
-import Container from "@/components/UI/Container.vue";
-import UImg from "@/components/UI/UImg.vue";
 
 const filter = ref("all");
 
@@ -13,28 +11,28 @@ const filterChange = (name) => {
 </script>
 
 <template>
-  <banner-block img="/images/bg.jpg" />
-
-  <div class="releases">
-    <container title="Релізи" mb="8">
-      <filters-item :filter="filter" @changeFilter="filterChange" />
-      <div class="releases__items">
-        <div class="releases__item border-class" v-for="n in 10" :key="n">
-          <div class="releases__item-hover item">
-            <div class="item__name">HELLO</div>
-            <div class="item__years">(2019)</div>
-            <div class="item__title">Слухай альбом на:</div>
-            <div class="item__icons">
-              <img src="/icons/music.svg" alt="music" />
-              <img src="/icons/spoty.svg" alt="spoty" />
+  <wrapper-page>
+    <div class="releases">
+      <container title="Релізи" mb="8">
+        <filters-item :filter="filter" @changeFilter="filterChange" />
+        <div class="releases__items">
+          <div class="releases__item border-class" v-for="n in 10" :key="n">
+            <div class="releases__item-hover item">
+              <div class="item__name">HELLO</div>
+              <div class="item__years">(2019)</div>
+              <div class="item__title">Слухай альбом на:</div>
+              <div class="item__icons">
+                <img src="/icons/music.svg" alt="music" />
+                <img src="/icons/spoty.svg" alt="spoty" />
+              </div>
             </div>
-          </div>
 
-          <u-img :src="`/images/releases_${n}.png`" alt="releases" />
+            <u-img :src="`/images/releases_${n}.png`" alt="releases" />
+          </div>
         </div>
-      </div>
-    </container>
-  </div>
+      </container>
+    </div>
+  </wrapper-page>
 </template>
 
 <style lang="scss" scoped>

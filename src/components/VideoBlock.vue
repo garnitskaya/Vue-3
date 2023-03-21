@@ -1,5 +1,4 @@
 <script setup>
-import Container from "@/components/UI/Container.vue";
 import VideoItem from "@/components/VideoItem.vue";
 </script>
 

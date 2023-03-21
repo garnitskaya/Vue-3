@@ -1,7 +1,5 @@
 <script setup>
-import StatusItem from "@/components/UI/StatusItem.vue";
-import UImg from "@/components/UI/UImg.vue";
-
+import StatusItem from "@/components/StatusItem.vue";
 const props = defineProps({
   item: {
     type: Object,
@@ -18,11 +16,9 @@ const props = defineProps({
       >{{ item.status }}</status-item
     >
 
-    <u-img
-      class="item__img"
-      :src="`/images/magnets_${item.id}.png`"
-      :alt="item.title"
-    />
+    <div class="item__img">
+      <u-img :src="`/images/magnets_${item.id}.png`" :alt="item.title" />
+    </div>
     <div class="item__name">{{ item.title }}</div>
     <div class="item__price">
       <span v-if="item.newPrice" class="item__price-new"
