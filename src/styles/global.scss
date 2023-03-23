@@ -117,3 +117,12 @@ h6 {
     padding: 36px 0;
   }
 }
+
+.btn-arrow {
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: block;
+  }
+
+}
