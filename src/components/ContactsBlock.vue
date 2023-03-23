@@ -38,7 +38,7 @@ const contactsItems = [
 </script>
 
 <template>
-  <div class="contacts-block grey-bg" id="contacts">
+  <div class="contacts-block wrap-content" id="contacts">
     <container title="Контакти">
       <div class="contacts-block__items">
         <contacts-item
@@ -53,12 +53,29 @@ const contactsItems = [
 
 <style lang="scss" scoped>
 .contacts-block {
+  background: var(--bg-grey);
   &__items {
     display: grid;
-    grid-template-columns: repeat(4, 276px);
+    grid-template-columns: repeat(4, minmax(auto, 276px));
     justify-content: space-between;
     gap: 24px;
     text-align: center;
+    margin-bottom: 52px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 276px);
+      justify-content: center;
+    }
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      gap: 28px 24px;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
   }
 }
 </style>

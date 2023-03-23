@@ -7,6 +7,7 @@ import '@/styles/global.scss'
 
 const app = createApp(App)
 
+
 components.forEach(component => {
   app.component(component.name, component);
 })

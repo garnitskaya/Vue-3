@@ -44,7 +44,16 @@ const props = defineProps({
   min-height: 399px;
   border: 1px solid var(--grey-dark-opacity);
   border-radius: 10px;
-
+  @media (max-width: 768px) {
+    max-width: 252px;
+    min-height: 373px;
+  }
+  @media (max-width: 576px) {
+    border: none;
+    max-width: 160px;
+    min-height: 290px;
+    padding: 0;
+  }
   &__img {
     height: auto;
     align-self: center;

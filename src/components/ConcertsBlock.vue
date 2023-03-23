@@ -127,8 +127,9 @@ const items = [
 </script>
 
 <template>
-  <div id="concerts" class="concerts-block">
+  <div id="concerts" class="concerts-block wrap-content">
     <container
+      small
       title="Концерти"
       :link="link && { href: 'concerts', label: 'Всі дати' }"
     >
@@ -145,13 +146,14 @@ const items = [
 
 <style lang="scss" scoped>
 .concerts-block {
-  padding: 48px 0;
-
   &__items {
     display: grid;
-    grid-template: auto / 576px;
+    grid-template: auto / 1fr;
     row-gap: 32px;
     justify-content: center;
+    @media (max-width: 480px) {
+      row-gap: 20px;
+    }
   }
 }
 </style>

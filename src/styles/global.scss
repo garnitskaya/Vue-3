@@ -106,7 +106,14 @@ h6 {
   @extend %extend-border-radius;
 }
 
-.grey-bg {
+.wrap-content {
   padding: 48px 0;
-  background: url("/images/merch_bg.jpg") center/ cover no-repeat;
+
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 36px 0;
+  }
 }

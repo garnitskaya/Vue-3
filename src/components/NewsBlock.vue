@@ -14,6 +14,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  title: {
+    type: String,
+    required: false,
+  },
 });
 
 const items = [
@@ -148,12 +152,13 @@ const items = [
 
 <template>
   <div
-    class="new-block grey-bg"
+    class="new-block wrap-content"
     :style="{ background: bg && 'none' }"
     id="news"
   >
     <container
-      title="Новини"
+      left
+      :title="title || 'Новини'"
       :link="link && { href: 'news', label: 'Всі новини' }"
     >
       <div class="new-block__items">
@@ -169,10 +174,18 @@ const items = [
 
 <style lang="scss" scoped>
 .new-block {
+  background: var(--bg-grey);
   &__items {
     display: grid;
     grid-template: 1fr / repeat(4, 1fr);
     gap: 32px 24px;
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 </style>

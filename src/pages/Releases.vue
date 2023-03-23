@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import BannerBlock from "@/components/BannerBlock.vue";
 import FiltersItem from "@/components/FiltersItem.vue";
 
 const filter = ref("all");
@@ -12,7 +11,7 @@ const filterChange = (name) => {
 
 <template>
   <wrapper-page>
-    <div class="releases">
+    <div class="releases wrap-content">
       <container title="Релізи" mb="8">
         <filters-item :filter="filter" @changeFilter="filterChange" />
         <div class="releases__items">
@@ -37,18 +36,27 @@ const filterChange = (name) => {
 
 <style lang="scss" scoped>
 .releases {
-  padding: 48px 0 100px;
-
   &__items {
     margin-top: 32px;
     display: grid;
     grid-template: auto / repeat(auto-fit, 276px);
     justify-content: center;
     gap: 24px;
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fit, 160px);
+    }
+    @media (max-width: 480px) {
+      margin-top: 24px;
+      gap: 15px;
+    }
   }
   &__item {
     width: 276px;
     height: 276px;
+    @media (max-width: 768px) {
+      width: 160px;
+      height: 160px;
+    }
     .item {
       &__name {
         font-size: 1.875rem;

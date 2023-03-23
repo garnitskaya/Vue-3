@@ -1,20 +1,19 @@
 <script setup>
-import BannerBlock from "@/components/BannerBlock.vue";
 import NewsBlock from "@/components/NewsBlock.vue";
 import VideoItem from "@/components/VideoItem.vue";
 import SocialLink from "@/components/SocialLink.vue";
 
 const linksSocials = [
-  { name: "fb-black" },
-  { name: "inst-black" },
-  { name: "telegram-black" },
+  { name: "facebook" },
+  { name: "instagram" },
+  { name: "telegram" },
 ];
 </script>
 
 <template>
   <wrapper-page class="new" p="0">
-    <div class="new__wrapper">
-      <container title="Все буде так, як ти захочеш!" mb="0">
+    <div class="new__wrapper wrap-content">
+      <container small title="Все буде так, як ти захочеш!" mb="0">
         <div class="new__date">12.11.2021</div>
         <div class="new__block">
           <p class="new__text">
@@ -31,6 +30,8 @@ const linksSocials = [
               v-for="link in linksSocials"
               :key="link.name"
               :link="link"
+              fill="#2D2D2D"
+              size="32"
             />
           </div>
           <div class="new__image border-class">
@@ -114,16 +115,12 @@ const linksSocials = [
         </div>
       </container>
     </div>
-    <news-block :quantity="4" />
+    <news-block title="Читайте також:" :quantity="4" />
   </wrapper-page>
 </template>
 
 <style lang="scss" scoped>
 .new {
-  &__wrapper {
-    padding: 48px 0;
-    margin: 0 auto;
-  }
   &__date {
     text-align: center;
     font-size: 14px;
@@ -131,10 +128,9 @@ const linksSocials = [
     color: var(--grey-dark);
   }
   &__block {
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    width: 576px;
+    width: 100%;
     gap: 16px;
   }
   &__line {
@@ -149,8 +145,11 @@ const linksSocials = [
   }
   &__video,
   &__image {
-    width: 576px;
+    width: 100%;
     height: 324px;
+    @media (max-width: 768px) {
+      height: 297px;
+    }
   }
   &__links {
     display: flex;

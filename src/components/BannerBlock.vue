@@ -54,6 +54,16 @@ const props = defineProps({
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
+    cursor: pointer;
+    &:hover {
+      /*animation: ;*/
+    }
+    @media (max-width: 768px) {
+      bottom: 24px;
+    }
+    @media (max-width: 480px) {
+      bottom: 16px;
+    }
   }
 }
 </style>

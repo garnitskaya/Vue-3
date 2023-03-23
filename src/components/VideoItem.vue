@@ -32,15 +32,18 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .video {
+  width: 100%;
+  height: 100%;
   position: relative;
+  aspect-ratio: 16 / 9;
   transition: 0.4s opacity;
-
   cursor: pointer;
   &:hover {
     opacity: 0.9;
   }
 
   &__item {
+    object-fit: cover;
     display: block;
     position: absolute;
     top: 0;

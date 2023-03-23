@@ -35,7 +35,11 @@ onBeforeUnmount(() => {
   <header class="header">
     <div class="header__container">
       <div ref="menuContainer" class="header__menu-wrap">
-        <menu-item :active="isMenuOpen" @openMenu="openMenu" />
+        <menu-item
+          :active="isMenuOpen"
+          @openMenu="openMenu"
+          :linksSocials="linksSocials"
+        />
         <div class="hamburger">
           <div
             :class="['hamburger__block', { active: isMenuOpen }]"
@@ -69,18 +73,31 @@ onBeforeUnmount(() => {
   justify-content: center;
   padding: 0 15px;
   z-index: 10;
-
+  @media (max-width: 768px) {
+    height: 70px;
+    padding: 15px 30px;
+  }
+  @media (max-width: 480px) {
+    height: 48px;
+    padding: 12px 20px;
+  }
   &__container {
     position: relative;
     width: calc(1214px + 30px);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 768px) {
+      align-items: flex-start;
+    }
   }
 
   &__links {
     display: flex;
     gap: 24px;
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 }
 
@@ -112,6 +129,9 @@ onBeforeUnmount(() => {
     font-size: 0.875rem;
     line-height: 1.25rem;
     color: var(--white);
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
 
   .active {

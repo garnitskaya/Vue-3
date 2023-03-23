@@ -33,13 +33,18 @@ const props = defineProps({
   justify-content: center;
 
   &__item {
-    width: 576px;
+    width: 100%;
   }
   &__title {
     margin-bottom: 16px;
     text-align: center;
     font-size: 20px;
     line-height: 28px;
+    @media (max-width: 768px) {
+      margin-bottom: 8px;
+      font-size: 22px;
+      line-height: 31px;
+    }
   }
   &__data {
     position: absolute;
@@ -49,6 +54,11 @@ const props = defineProps({
     font-size: 20px;
     line-height: 23px;
     color: var(--grey-dark);
+    @media (max-width: 768px) {
+      margin-top: 7px;
+      font-size: 16px;
+      line-height: 23px;
+    }
     &::before,
     &::after {
       content: "";
@@ -73,9 +83,11 @@ const props = defineProps({
   &__text {
     margin-bottom: 28px;
     font-family: "Open Sans";
-
     font-size: 16px;
     line-height: 23px;
+    @media (max-width: 768px) {
+      margin-bottom: 24px;
+    }
   }
 }
 </style>

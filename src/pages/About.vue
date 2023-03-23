@@ -44,7 +44,7 @@ const historyItems = [
     },
   },
   {
-    data: "2005 - 2006",
+    data: "2005-2006",
     items: [
       {
         name: "Освіта і мрії",
@@ -70,7 +70,7 @@ const historyItems = [
 
 <template>
   <wrapper-page>
-    <div class="about">
+    <div class="about wrap-content">
       <container title="Склад гурту">
         <div class="about__group-blocks">
           <group-item v-for="item in items" :key="item.id" :item="item" />
@@ -79,11 +79,13 @@ const historyItems = [
 
       <container title="Історія гурту">
         <div class="about__history-blocks">
-          <history-item
-            v-for="(item, i) in historyItems"
-            :key="i"
-            :item="item"
-          />
+          <container small>
+            <history-item
+              v-for="(item, i) in historyItems"
+              :key="i"
+              :item="item"
+            />
+          </container>
         </div>
       </container>
     </div>
@@ -92,12 +94,15 @@ const historyItems = [
 
 <style lang="scss" scoped>
 .about {
-  position: relative;
-  padding: 48px 0;
-
   display: flex;
   flex-direction: column;
   gap: 48px;
+  @media (max-width: 768px) {
+    gap: 40px;
+  }
+  @media (max-width: 480px) {
+    gap: 36px;
+  }
   &__group-blocks {
     display: flex;
     flex-direction: column;
@@ -106,10 +111,11 @@ const historyItems = [
 
   &__history-blocks {
     margin-left: 10px;
-    min-width: 1176px;
     width: 100%;
     position: relative;
     border-left: 1px solid var(--grey);
+    @media (max-width: 768px) {
+    }
   }
 }
 </style>

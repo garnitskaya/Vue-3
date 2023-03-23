@@ -1,19 +1,40 @@
-<script setup>
-const props = defineProps({
-  link: {
-    type: Object,
-    required: true,
+<script >
+import { computed } from "vue";
+import choices from "@/components/Icons/choices.js";
+
+export default {
+  props: {
+    fill: {
+      type: String,
+    },
+    link: {
+      type: Object,
+      required: true,
+    },
+    size: {
+      type: String,
+      required: false,
+    },
   },
-  big: {
-    type: Boolean,
-    required: false,
+  setup(props) {
+    const selectedIcon = computed(() => {
+      return chooseIcon(props.link.name);
+    });
+
+    function chooseIcon(name) {
+      return choices[name] || null;
+    }
+
+    return {
+      selectedIcon,
+    };
   },
-});
+};
 </script>
 
 <template>
-  <a href="#" :class="['link', { link_big: big }]" target="_blank">
-    <u-img :src="`/icons/${link.name}.svg`" :alt="link.name" />
+  <a :href="link.to" :class="['link', { link_big: size }]" target="_blank">
+    <component :is="selectedIcon" v-bind="{ fill, size }" />
   </a>
 </template>
 

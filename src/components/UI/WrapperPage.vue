@@ -27,5 +27,8 @@ export default defineComponent({
 <style lang="scss" scoped>
 .wrapper-page {
   padding: 0 0 52px 0;
+  @media (max-width: 480px) {
+    padding: 0 0 34px 0;
+  }
 }
 </style>

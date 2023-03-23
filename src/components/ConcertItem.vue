@@ -19,10 +19,18 @@ const props = defineProps({
       <span>{{ item.place }}</span>
     </div>
 
-    <u-button v-if="item.active" styles="red">Квитки</u-button>
-    <u-button v-else-if="item.canceled" styles="outlined">Відмінено</u-button>
-    <u-button v-else-if="item.delayed" styles="outlined">Перенесено</u-button>
-    <u-button v-else-if="!item.active" styles="warning">SOLD OUT</u-button>
+    <u-button class="item__btn" v-if="item.active" styles="red">
+      Квитки
+    </u-button>
+    <u-button class="item__btn" v-else-if="item.canceled" styles="outlined">
+      Відмінено
+    </u-button>
+    <u-button class="item__btn" v-else-if="item.delayed" styles="outlined">
+      Перенесено
+    </u-button>
+    <u-button class="item__btn" v-else-if="!item.active" styles="warning">
+      SOLD OUT
+    </u-button>
   </div>
 </template>
 
@@ -30,12 +38,19 @@ const props = defineProps({
 .item {
   display: grid;
   grid-template-columns: 174px 1fr auto;
-
+  @media (max-width: 576px) {
+    grid-template-columns: 150px 1fr auto;
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr auto;
+  }
   &__date {
     font-weight: 300;
     font-size: 1.625rem;
     line-height: 1.375rem;
-
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
     span {
       font-size: 1.25rem;
     }
@@ -45,6 +60,12 @@ const props = defineProps({
     font-weight: 300;
     font-size: 1.375rem;
     line-height: 1.875rem;
+    @media (max-width: 480px) {
+      margin-top: 4px;
+      grid-row: 2/ 3;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
 
     span {
       display: block;
@@ -55,6 +76,10 @@ const props = defineProps({
   }
   &__btn {
     align-self: center;
+    @media (max-width: 480px) {
+      grid-column: 2/ 3;
+      grid-row: 1/ 3;
+    }
   }
 }
 </style>

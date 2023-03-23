@@ -42,7 +42,7 @@ const linksSocials = { name: "fb" };
       {{ item.email }}
     </a>
 
-    <social-link :link="{ name: 'fb-black' }" />
+    <social-link :link="{ name: 'facebook' }" fill="#2D2D2D" size="32" />
   </div>
 </template>
 
@@ -53,7 +53,9 @@ const linksSocials = { name: "fb" };
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  margin-bottom: 52px;
+  @media (max-width: 576px) {
+    gap: 8px;
+  }
   &__title {
     font-size: 18px;
     line-height: 25px;
@@ -65,6 +67,9 @@ const linksSocials = { name: "fb" };
     width: 36px;
     height: 1px;
     background: var(--red);
+    @media (max-width: 576px) {
+      margin: 3px 0;
+    }
   }
   &__emails {
     & > :last-child {

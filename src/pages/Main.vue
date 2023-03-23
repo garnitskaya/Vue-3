@@ -1,4 +1,5 @@
 <script setup>
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 import BannerBlock from "@/components/BannerBlock.vue";
 import ConcertsBlock from "@/components/ConcertsBlock.vue";
 import PremiereBlock from "@/components/PremiereBlock.vue";
@@ -8,16 +9,34 @@ import NewsBlock from "@/components/NewsBlock.vue";
 import InstagramBlock from "@/components/InstagramBlock.vue";
 import FantytilaBlock from "@/components/FantytilaBlock.vue";
 import ContactsBlock from "@/components/ContactsBlock.vue";
+
+const width = ref(null);
+
+const updateWidth = () => {
+  width.value = window.innerWidth;
+};
+
+const quantity = (a, b, c) => {
+  return width.value > 768 ? a : width.value > 576 ? b : c;
+};
+
+onMounted(() => {
+  window.addEventListener("resize", updateWidth);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", updateWidth);
+});
 </script>
 
 <template>
   <banner-block img="/images/head.jpg" btn />
-  <concerts-block :quantity="7" link />
+  <concerts-block :quantity="quantity(7, 5, 3)" link />
   <premiere-block />
   <merch-block />
-  <promo-block />
-  <news-block :quantity="4" link />
-  <instagram-block />
+  <promo-block :quantity="quantity(5, 4, 3)" />
+  <news-block :quantity="quantity(4, 2, 2)" link />
+  <instagram-block :quantity="quantity(10, 8, 8)" />
   <fantytila-block />
   <contacts-block />
 </template>

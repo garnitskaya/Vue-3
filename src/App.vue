@@ -3,11 +3,11 @@ import HeaderMenu from "@/components/HeaderMenu.vue";
 import FooterBlock from "@/components/FooterBlock.vue";
 
 const linksSocials = [
-  { name: "youtube" },
-  { name: "spoty" },
-  { name: "apple" },
-  { name: "fb" },
-  { name: "inst" },
+  { name: "youtube", to: "#" },
+  { name: "spotify", to: "#" },
+  { name: "music", to: "#" },
+  { name: "facebook", to: "#" },
+  { name: "instagram", to: "#" },
 ];
 </script>
 

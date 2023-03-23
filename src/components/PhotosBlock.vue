@@ -1,5 +1,4 @@
 <script setup>
-
 const arrPhotos = [
   {
     id: 1,
@@ -42,16 +41,32 @@ const arrPhotos = [
 
 <style lang="scss" scoped>
 .photos {
-  max-height: 450px;
+  max-height: 100%;
   display: grid;
   grid-template: repeat(2, 1fr) / 66% 1fr;
   gap: 24px;
   & :first-child {
     grid-row: 1/ 3;
+
+    @media (max-width: 768px) {
+      grid-row: 1/ 2;
+      grid-column: 1/ 3;
+    }
+    @media (max-width: 576px) {
+      grid-column: 1/ 2;
+    }
+  }
+  @media (max-width: 768px) {
+    max-height: 632px;
+    grid-template: 65.5% 1fr / repeat(2, 1fr);
+  }
+  @media (max-width: 576px) {
+    max-height: 100%;
+    grid-template: 1fr / 1fr;
+    gap: 16px;
   }
   &__wrap {
     position: relative;
-    max-height: 450px;
   }
 
   &__title {
