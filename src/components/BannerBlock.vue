@@ -16,8 +16,9 @@ const props = defineProps({
     <h1></h1>
     <u-img :src="img" alt="banner" />
 
-    <button v-if="btn" class="banner__btn">
+    <a href="#concerts" v-if="btn" class="banner__btn">
       <svg
+        class="arrow-down"
         width="32"
         height="32"
         viewBox="0 0 32 32"
@@ -35,7 +36,7 @@ const props = defineProps({
           stroke-miterlimit="10"
         />
       </svg>
-    </button>
+    </a>
   </div>
 </template>
 
@@ -55,8 +56,38 @@ const props = defineProps({
     left: 50%;
     transform: translateX(-50%);
     cursor: pointer;
-    &:hover {
-      /*animation: ;*/
+    .arrow-down {
+      bottom: 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes arrow {
+      0% {
+        bottom: 0px;
+        opacity: 1;
+      }
+      25% {
+        bottom: -15px;
+        opacity: 0.2;
+      }
+      50% {
+        bottom: 0;
+        opacity: 1;
+      }
+      75% {
+        bottom: -15px;
+        opacity: 0.2;
+      }
+      100% {
+        bottom: 0px;
+        opacity: 1;
+      }
+    }
+
+    &:hover .arrow-down {
+      animation: arrow 1.5s linear infinite;
     }
     @media (max-width: 768px) {
       bottom: 24px;
