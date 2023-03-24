@@ -1,5 +1,6 @@
 <script setup>
 import NewItem from "@/components/NewItem.vue";
+import Paginator from "@/components/Paginator.vue";
 
 const props = defineProps({
   quantity: {
@@ -16,6 +17,10 @@ const props = defineProps({
   },
   title: {
     type: String,
+    required: false,
+  },
+  left: {
+    type: Boolean,
     required: false,
   },
 });
@@ -157,9 +162,9 @@ const items = [
     id="news"
   >
     <container
-      left
+      :left="left"
       :title="title || 'Новини'"
-      :link="link && { href: 'news', label: 'Всі новини' }"
+      :link="link ? { href: 'news', label: 'Всі новини' } : null"
     >
       <div class="new-block__items">
         <new-item
@@ -169,6 +174,7 @@ const items = [
         />
       </div>
     </container>
+    <paginator :totalCount="100" v-show="quantity == -1" />
   </div>
 </template>
 

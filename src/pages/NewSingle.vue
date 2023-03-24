@@ -115,7 +115,7 @@ const linksSocials = [
         </div>
       </container>
     </div>
-    <news-block title="Читайте також:" :quantity="4" />
+    <news-block left title="Читайте також:" :quantity="4" />
   </wrapper-page>
 </template>
 

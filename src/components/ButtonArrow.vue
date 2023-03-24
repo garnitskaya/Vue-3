@@ -2,9 +2,15 @@
 const props = defineProps({
   styles: {
     type: String,
+    validator(value) {
+      return ["right", "left"].includes(value);
+    },
   },
   position: {
     type: String,
+    validator(value) {
+      return ["center"].includes(value);
+    },
   },
 });
 </script>

@@ -12,7 +12,7 @@ const filterChange = (name) => {
 <template>
   <wrapper-page>
     <div class="releases wrap-content">
-      <container title="Релізи" mb="8">
+      <container title="Релізи" :mb="8">
         <filters-item :filter="filter" @changeFilter="filterChange" />
         <div class="releases__items">
           <div class="releases__item border-class" v-for="n in 10" :key="n">

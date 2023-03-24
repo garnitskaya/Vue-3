@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import BannerBlock from "@/components/BannerBlock.vue";
 import ConcertsBlock from "@/components/ConcertsBlock.vue";
 import PremiereBlock from "@/components/PremiereBlock.vue";
@@ -21,6 +21,7 @@ const quantity = (a, b, c) => {
 };
 
 onMounted(() => {
+  updateWidth();
   window.addEventListener("resize", updateWidth);
 });
 

@@ -3,6 +3,9 @@ const props = defineProps({
   filter: {
     type: String,
     default: "all",
+    validator(value) {
+      return ["all", "alboms", "singles", "collaborations"].includes(value);
+    },
   },
 });
 const emits = defineEmits(["changeFilter"]);

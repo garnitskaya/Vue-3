@@ -36,7 +36,7 @@ export default defineComponent({
 <template>
   <div :class="['container', { 'container-small': small }]">
     <h2
-      v-if="title"
+      v-show="title"
       :style="{ 'margin-bottom': `${mb}px` }"
       :class="['container__title', { 'container__title-left': left }]"
     >
