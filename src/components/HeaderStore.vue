@@ -1,20 +1,14 @@
 <script setup>
-import { ref } from "vue";
 import Container from "@/components/UI/Container.vue";
 import MenuLink from "@/components/MenuLink.vue";
 import Hamburger from "@/components/Hamburger.vue";
-
+import useOpenMenu from "@/hooks/useOpenMenu";
 const links = [
   { name: "Оплата і доставка", to: "" },
   { name: "Контакти", to: "#" },
   { name: "Угода користувача", to: "#" },
 ];
-
-const isMenuOpen = ref(true);
-
-const openMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-};
+const { isMenuOpen, openMenu } = useOpenMenu();
 </script>
 
 <template>

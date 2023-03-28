@@ -3,6 +3,7 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 import SocialLink from "@/components/SocialLink.vue";
 import MenuItem from "@/components/MenuItem.vue";
 import Hamburger from "@/components/Hamburger.vue";
+import useOpenMenu from "@/hooks/useOpenMenu";
 
 const props = defineProps({
   linksSocials: {
@@ -11,12 +12,8 @@ const props = defineProps({
   },
 });
 
-const isMenuOpen = ref(false);
+const { isMenuOpen, openMenu } = useOpenMenu();
 const menuContainer = ref(null);
-
-const openMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-};
 
 const handleDocumentClick = (event) => {
   if (!menuContainer.value.contains(event.target)) {
