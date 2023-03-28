@@ -3,9 +3,9 @@
 
 <template>
   <div class="notfound">
-    <div class="notfound__logo">
+    <a href="/" class="notfound__logo">
       <u-img src="/images/Antitela.png" alt="logo" />
-    </div>
+    </a>
     <div class="notfound__block">
       <span>4</span>
       <div class="notfound__img">

@@ -66,6 +66,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .container {
+  position: relative;
   width: 100%;
   max-width: calc(1176px + 30px);
   padding: 0 15px;

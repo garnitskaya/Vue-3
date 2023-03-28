@@ -2,6 +2,13 @@
 import { ref } from "vue";
 import FiltersItem from "@/components/FiltersItem.vue";
 
+const filtersBtn = [
+  { name: "all", label: "Все" },
+  { name: "alboms", label: "Альбоми" },
+  { name: "singles", label: "Сингли" },
+  { name: "collaborations", label: "Колаборації" },
+];
+
 const filter = ref("all");
 
 const filterChange = (name) => {
@@ -13,7 +20,12 @@ const filterChange = (name) => {
   <wrapper-page>
     <div class="releases wrap-content">
       <container title="Релізи" :mb="8">
-        <filters-item :filter="filter" @changeFilter="filterChange" />
+        <filters-item
+          styles="releases"
+          :filters="filtersBtn"
+          :filter="filter"
+          @changeFilter="filterChange"
+        />
         <div class="releases__items">
           <div class="releases__item border-class" v-for="n in 10" :key="n">
             <div class="releases__item-hover item">

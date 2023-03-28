@@ -36,7 +36,7 @@ const items = [
     <container
       class="merch-block__container"
       title="Мерч"
-      :link="{ href: '#', label: 'Переглянути весь мерч' }"
+      :link="{ href: '/store', label: 'Переглянути весь мерч' }"
     >
       <div class="merch-block__wrap">
         <div class="merch-block__items">

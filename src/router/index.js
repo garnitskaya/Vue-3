@@ -5,6 +5,7 @@ import Releases from '../pages/Releases.vue';
 import News from '../pages/News.vue';
 import NewSingle from '../pages/NewSingle.vue';
 import About from '../pages/About.vue';
+import StoreMain from '../pages/StoreMain.vue';
 import NotFound from '../pages/NotFound.vue';
 
 const router = createRouter({
@@ -33,6 +34,13 @@ const router = createRouter({
     {
       path: '/about',
       component: About,
+    },
+    {
+      path: '/store',
+      component: StoreMain,
+      meta: {
+        layout: 'store-layout'
+      }
     },
     {
       path: '/:pathMatch(.*)*',

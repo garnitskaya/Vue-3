@@ -1,26 +1,20 @@
 <script setup>
-import HeaderMenu from "@/components/HeaderMenu.vue";
-import FooterBlock from "@/components/FooterBlock.vue";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
 
-const linksSocials = [
-  { name: "youtube", to: "#" },
-  { name: "spotify", to: "#" },
-  { name: "music", to: "#" },
-  { name: "facebook", to: "#" },
-  { name: "instagram", to: "#" },
-];
+const route = useRoute();
+
+const layout = computed(() => {
+  return route.meta.layout || "default-layout";
+});
 </script>
 
+
 <template>
-  <header-menu :linksSocials="linksSocials" />
-  <main class="main-container">
+  <component :is="layout">
     <router-view />
-  </main>
-  <footer-block :linksSocials="linksSocials" />
+  </component>
 </template>
 
 <style lang="scss">
-.main-container {
-  flex: 1;
-}
 </style>

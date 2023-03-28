@@ -2,6 +2,7 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import SocialLink from "@/components/SocialLink.vue";
 import MenuItem from "@/components/MenuItem.vue";
+import Hamburger from "@/components/Hamburger.vue";
 
 const props = defineProps({
   linksSocials: {
@@ -40,17 +41,12 @@ onBeforeUnmount(() => {
           @openMenu="openMenu"
           :linksSocials="linksSocials"
         />
-        <div class="hamburger">
-          <div
-            :class="['hamburger__block', { active: isMenuOpen }]"
-            @click="openMenu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="hamburger__label">Меню</div>
-        </div>
+        <hamburger
+          color="white"
+          label="Menu"
+          :active="isMenuOpen"
+          @menuClick="openMenu"
+        />
       </div>
       <div class="header__links">
         <social-link
@@ -97,58 +93,6 @@ onBeforeUnmount(() => {
     gap: 24px;
     @media (max-width: 768px) {
       display: none;
-    }
-  }
-}
-
-.hamburger {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  cursor: pointer;
-
-  &__block {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 22px;
-    height: 19px;
-
-    span {
-      display: block;
-      width: 100%;
-      height: 3px;
-      background-color: var(--white);
-      border-radius: 2px;
-      transition: all 0.2s;
-    }
-  }
-
-  &__label {
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    color: var(--white);
-    @media (max-width: 480px) {
-      display: none;
-    }
-  }
-
-  .active {
-    span {
-      &:nth-child(1) {
-        background-color: var(--black);
-        transform: translateY(9px) rotate(45deg);
-      }
-
-      &:nth-child(2) {
-        display: none;
-      }
-
-      &:nth-child(3) {
-        background-color: var(--black);
-        transform: translateY(-7px) rotate(-45deg);
-      }
     }
   }
 }

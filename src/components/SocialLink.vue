@@ -1,8 +1,8 @@
 <script >
-import { computed } from "vue";
+import { computed, defineComponent } from "vue";
 import choices from "@/components/Icons/choices.js";
 
-export default {
+export default defineComponent({
   props: {
     fill: {
       type: String,
@@ -29,7 +29,7 @@ export default {
       selectedIcon,
     };
   },
-};
+});
 </script>
 
 <template>
