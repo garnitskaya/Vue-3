@@ -12,7 +12,6 @@
 }
 
 * {
-  font-family: 'Albertus Nova';
   padding: 0;
   margin: 0;
   border: 0;
@@ -45,7 +44,7 @@ aside {
 
 html,
 body {
-  font-family: 'Albertus Nova';
+  font-family: var(--body-font);
   height: 100%;
   width: 100%;
   line-height: 1;

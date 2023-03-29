@@ -115,7 +115,7 @@ const linksSocials = [
         </div>
       </container>
     </div>
-    <news-block left title="Читайте також:" :quantity="4" />
+    <news-block bg left title="Читайте також:" :quantity="4" />
   </wrapper-page>
 </template>
 
@@ -139,7 +139,7 @@ const linksSocials = [
     background: var(--grey);
   }
   &__text {
-    font-family: "Open Sans";
+    font-family: var(--special-font);
     font-size: 16px;
     line-height: 23px;
   }

@@ -73,7 +73,7 @@ const arrPhotos = [
     width: 100%;
     position: absolute;
     bottom: 16px;
-    font-family: "Open Sans";
+    font-family: var(--special-font);
     font-size: 16px;
     line-height: 23px;
     color: var(--white);

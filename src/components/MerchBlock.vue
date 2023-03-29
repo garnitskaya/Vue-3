@@ -1,48 +1,61 @@
 <script setup>
+import { ref, onMounted } from "vue";
+import axios from "axios";
 import MerchItem from "@/components/MerchItem.vue";
 import ButtonArrow from "@/components/ButtonArrow.vue";
 
-const items = [
-  {
-    id: 1,
-    title: "Магніт «АНТИТІЛА» 10Х6СМ",
-    price: 300,
-    status: "new",
+const props = defineProps({
+  link: {
+    type: Boolean,
+    default: false,
   },
-  {
-    id: 2,
-    title: "Футболка «Дельфіни» (чорна, чоловіча)",
-    price: 300,
-    status: "empty",
+  bg: {
+    type: Boolean,
+    default: false,
   },
-  {
-    id: 3,
-    title: "Магніт «Антитіла HELLO» 9х6см",
-    price: 30,
-    status: "empty",
+  title: {
+    type: String,
+    required: false,
   },
-  {
-    id: 4,
-    title: "Футболка «A» (червона, unisex)",
-    price: 350,
-    newPrice: 300,
-    status: "sale",
+  left: {
+    type: Boolean,
+    required: false,
   },
-];
+});
+const products = ref([]);
+const isProductsLoading = ref(true);
+
+const fetching = async () => {
+  try {
+    const response = await axios.get("http://localhost:3000/product");
+    products.value = response.data;
+  } catch (error) {
+    alert("Ошибка");
+  } finally {
+    isProductsLoading.value = false;
+  }
+};
+
+onMounted(fetching);
 </script>
 
 <template>
-  <div class="merch-block wrap-content" id="merch">
+  <div
+    class="merch-block wrap-content"
+    :style="{ background: !bg && 'none' }"
+    id="merch"
+  >
     <container
+      :left="left"
       class="merch-block__container"
-      title="Мерч"
-      :link="{ href: '/store', label: 'Переглянути весь мерч' }"
+      :title="title || 'Мерч'"
+      :link="link ? { href: '/store', label: 'Переглянути весь мерч' } : null"
     >
       <div class="merch-block__wrap">
         <div class="merch-block__items">
           <merch-item
             class="merch-block__item"
-            v-for="item in items"
+            v-for="item in products.slice(0, 4)"
             :key="item"
             :item="item"
           />

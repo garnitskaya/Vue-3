@@ -158,7 +158,7 @@ const items = [
 <template>
   <div
     class="new-block wrap-content"
-    :style="{ background: bg && 'none' }"
+    :style="{ background: !bg && 'none' }"
     id="news"
   >
     <container

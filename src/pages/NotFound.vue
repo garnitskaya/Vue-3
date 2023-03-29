@@ -60,7 +60,7 @@
       gap: 8px;
     }
     span {
-      font-family: "Open Sans";
+      font-family: var(--special-font);
       font-weight: 700;
       font-size: 25rem;
       @media (max-width: 768px) {
@@ -85,7 +85,7 @@
   }
   &__text {
     margin-bottom: 38px;
-    font-family: "Open Sans";
+    font-family: var(--special-font);
     font-size: 1rem;
     line-height: 1.4375rem;
     @media (max-width: 768px) {

@@ -76,7 +76,7 @@ const filterChange = (name) => {
       }
       &__title {
         margin-top: 30px;
-        font-family: "Open Sans";
+        font-family: var(--special-font);
         font-size: 1rem;
         line-height: 1.4375rem;
       }

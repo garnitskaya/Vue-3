@@ -4,7 +4,7 @@ import NewsBlock from "@/components/NewsBlock.vue";
 
 <template>
   <wrapper-page class="news">
-    <news-block bg />
+    <news-block />
   </wrapper-page>
 </template>
 

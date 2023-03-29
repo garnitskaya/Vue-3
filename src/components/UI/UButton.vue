@@ -7,10 +7,16 @@ export default defineComponent({
     styles: {
       type: String,
       required: true,
+      validator(value) {
+        return ["warning", "red", "outlined"].includes(value);
+      },
     },
     size: {
       type: String,
       required: false,
+      validator(value) {
+        return ["big", "small"].includes(value);
+      },
     },
   },
 });

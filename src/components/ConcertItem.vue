@@ -1,6 +1,4 @@
 <script setup>
-import UButton from "./UI/UButton.vue";
-
 const props = defineProps({
   item: {
     type: Object,

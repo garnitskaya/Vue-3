@@ -9,7 +9,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <a href="#" :class="['item', `item-${item.status}`]">
+  <router-link
+    :to="'/store/' + item.id"
+    :class="['item', `item-${item.status}`]"
+  >
     <status-item
       v-if="item.status != 'empty'"
       :color="item.status === 'new' ? '#59AD02' : '#FF1E00'"
@@ -17,18 +20,18 @@ const props = defineProps({
     >
 
     <div class="item__img">
-      <u-img :src="`/images/magnets_${item.id}.png`" :alt="item.title" />
+      <u-img :src="`/images/magnets_${item.image}`" :alt="item.title" />
     </div>
     <div class="item__name">{{ item.title }}</div>
     <div class="item__price">
-      <span v-if="item.newPrice" class="item__price-new"
-        >{{ item.newPrice }} ₴</span
-      >
-      <span :class="{ 'item__price-old': item.newPrice }"
-        >{{ item.price }} ₴</span
-      >
+      <span v-if="item.newPrice" class="item__price-new">
+        {{ item.newPrice }} ₴
+      </span>
+      <span :class="{ 'item__price-old': item.newPrice }">
+        {{ item.price }} ₴
+      </span>
     </div>
-  </a>
+  </router-link>
 </template>
 
 
@@ -65,14 +68,17 @@ const props = defineProps({
     cursor: pointer;
   }
   &__price {
-    font-size: 0.875rem;
-    line-height: 1.1875rem;
-    &-new {
-      font-size: 1rem;
-      line-height: 1.375rem;
+    font-size: 16px;
+    line-height: 22px;
+    @media (max-width: 576px) {
+      font-size: 18px;
+      line-height: 25px;
     }
+
     &-old {
       margin: 0 0 0 8px;
+      font-size: 14px;
+      line-height: 19px;
       font-weight: 300;
       text-decoration: line-through;
       color: var(--grey-dark);

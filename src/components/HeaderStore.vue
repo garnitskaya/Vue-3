@@ -1,8 +1,8 @@
 <script setup>
-import Container from "@/components/UI/Container.vue";
 import MenuLink from "@/components/MenuLink.vue";
 import Hamburger from "@/components/Hamburger.vue";
 import useOpenMenu from "@/hooks/useOpenMenu";
+
 const links = [
   { name: "Оплата і доставка", to: "" },
   { name: "Контакти", to: "#" },
@@ -13,6 +13,14 @@ const { isMenuOpen, openMenu } = useOpenMenu();
 
 <template>
   <div class="header-store">
+    <a
+      v-if="$route.path !== '/store' && $route.path !== '/store/'"
+      href="/"
+      class="header-store__logo"
+    >
+      <u-img src="/images/Antitela.png" alt="logo" />
+    </a>
+
     <container>
       <div class="header-store__wrap">
         <hamburger color="black" :active="isMenuOpen" @menuClick="openMenu" />
@@ -23,6 +31,7 @@ const { isMenuOpen, openMenu } = useOpenMenu();
             :link="link"
           />
         </div>
+
         <div class="header-store__icons">
           <div class="header-store__search">
             <svg
@@ -91,6 +100,19 @@ const { isMenuOpen, openMenu } = useOpenMenu();
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  &__logo {
+    width: 115px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    @media (max-width: 480px) {
+      top: 2px;
+      width: 94px;
+      height: 46px;
+    }
   }
   &__menu {
     font-weight: 300;

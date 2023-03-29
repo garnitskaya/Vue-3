@@ -18,7 +18,7 @@ export default defineComponent({
     },
     mb: {
       type: Number,
-      default: 32,
+      //default: 32,
     },
     small: {
       type: Boolean,
@@ -85,11 +85,22 @@ export default defineComponent({
     }
   }
   &__title {
+    margin-bottom: 32px;
     font-size: 1.875rem;
     line-height: 2.625rem;
     text-align: center;
     &-left {
+      margin-bottom: 24px;
       text-align: left;
+      font-size: 20px;
+      line-height: 28px;
+      @media (max-width: 768px) {
+        padding: 0 28px;
+      }
+      @media (max-width: 480px) {
+        font-size: 22px;
+        line-height: 31px;
+      }
     }
     @media (max-width: 768px) {
       margin-bottom: 28px !important;

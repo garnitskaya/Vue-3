@@ -6,6 +6,7 @@ import News from '../pages/News.vue';
 import NewSingle from '../pages/NewSingle.vue';
 import About from '../pages/About.vue';
 import StoreMain from '../pages/StoreMain.vue';
+import StoreSingle from '../pages/StoreSingle.vue';
 import NotFound from '../pages/NotFound.vue';
 
 const router = createRouter({
@@ -38,6 +39,13 @@ const router = createRouter({
     {
       path: '/store',
       component: StoreMain,
+      meta: {
+        layout: 'store-layout'
+      }
+    },
+    {
+      path: '/store/:id',
+      component: StoreSingle,
       meta: {
         layout: 'store-layout'
       }

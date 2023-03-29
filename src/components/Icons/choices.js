@@ -4,6 +4,8 @@ import music from './IconMusic.vue';
 import spotify from './IconSpotify.vue';
 import telegram from './IconTelegram.vue';
 import youtube from './IconYoutube.vue';
+import twitter from './IconTwitter.vue';
+import shareSocial from './IconShareSocial.vue';
 
 const choices = {
   facebook,
@@ -11,6 +13,8 @@ const choices = {
   music,
   spotify,
   telegram,
-  youtube
+  youtube,
+  twitter,
+  shareSocial
 }
 export default choices;

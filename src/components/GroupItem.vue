@@ -76,13 +76,13 @@ const props = defineProps({
   }
   &__position {
     margin-top: 5px;
-    font-family: "Open Sans";
+    font-family: var(--special-font);
     font-size: 16px;
     line-height: 23px;
   }
   &__text {
     margin-top: 8px;
-    font-family: "Open Sans";
+    font-family: var(--special-font);
     font-size: 16px;
     line-height: 23px;
   }

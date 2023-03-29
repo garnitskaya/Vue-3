@@ -57,7 +57,7 @@ const links = [
     gap: 24px;
   }
   .copyright {
-    font-family: "Open Sans";
+    font-family: var(--special-font);
     font-size: 0.75rem;
     line-height: 1rem;
     text-align: center;

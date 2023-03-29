@@ -72,7 +72,7 @@ const newText = computed(() => {
   &__text {
     flex: 1;
     margin-top: 4px;
-    font-family: "Open Sans";
+    font-family: var(--special-font);
     font-size: 0.875rem;
     line-height: 1.3125rem;
     @media (max-width: 768px) {
@@ -89,7 +89,7 @@ const newText = computed(() => {
     }
   }
   &__data {
-    font-family: "Open Sans";
+    font-family: var(--special-font);
     font-size: 0.75rem;
     line-height: 1.3125rem;
     @media (max-width: 768px) {

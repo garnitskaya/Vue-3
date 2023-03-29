@@ -146,7 +146,7 @@ watch(currentPage, generatePages);
 
   &__number {
     background: none;
-    font-family: "Open Sans";
+    font-family: var(--special-font);
     font-size: 14px;
     line-height: 21px;
     cursor: pointer;

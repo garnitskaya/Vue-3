@@ -68,7 +68,7 @@ const filterChange = (name) => {
     background: none;
     cursor: pointer;
     &-releases {
-      font-family: "Open Sans";
+      font-family: var(--special-font);
       font-size: 1rem;
       line-height: 1.4375rem;
       color: var(--grey-dark);

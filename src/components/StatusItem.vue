@@ -4,11 +4,18 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  position: {
+    type: Number,
+    required: false,
+  },
 });
 </script>
 
 <template>
-  <div class="status-item" :style="{ background: color }">
+  <div
+    class="status-item"
+    :style="{ background: color, top: position, left: position }"
+  >
     <slot />
   </div>
 </template>

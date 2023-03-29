@@ -49,7 +49,7 @@ const props = defineProps({
   &__data {
     position: absolute;
     left: 10px;
-    font-family: "Open Sans";
+    font-family: var(--special-font);
     font-weight: 600;
     font-size: 20px;
     line-height: 23px;
@@ -82,7 +82,7 @@ const props = defineProps({
   }
   &__text {
     margin-bottom: 28px;
-    font-family: "Open Sans";
+    font-family: var(--special-font);
     font-size: 16px;
     line-height: 23px;
     @media (max-width: 768px) {

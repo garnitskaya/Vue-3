@@ -34,9 +34,9 @@ onBeforeUnmount(() => {
   <banner-block img="/images/head.jpg" btn />
   <concerts-block :quantity="quantity(7, 5, 3)" link />
   <premiere-block />
-  <merch-block />
+  <merch-block bg link />
   <promo-block :quantity="quantity(5, 4, 3)" />
-  <news-block :quantity="quantity(4, 2, 2)" link />
+  <news-block bg :quantity="quantity(4, 2, 2)" link />
   <instagram-block :quantity="quantity(10, 8, 8)" />
   <fantytila-block />
   <contacts-block />

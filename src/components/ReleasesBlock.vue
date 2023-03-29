@@ -93,7 +93,7 @@ import ButtonArrow from "@/components/ButtonArrow.vue";
         line-height: 1.75rem;
       }
       &__years {
-        font-family: "Noto Sans", sans-serif;
+        font-family: var(--releases-font);
         font-weight: 500;
         font-size: 1.25rem;
         line-height: 1.6875rem;

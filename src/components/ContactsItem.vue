@@ -7,8 +7,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-const linksSocials = { name: "fb" };
 </script>
 
 <template>
@@ -80,7 +78,7 @@ const linksSocials = { name: "fb" };
   &__phone,
   &__email {
     display: block;
-    font-family: "Open Sans";
+    font-family: var(--special-font);
     font-size: 16px;
     line-height: 23px;
   }
