@@ -1,5 +1,5 @@
 {
-  "product": [
+  "products": [
     {
       "id": 1,
       "image": "1.png",
@@ -12,7 +12,16 @@
       "image": "2.png",
       "title": "Футболка «Дельфіни» (чорна, чоловіча)",
       "price": 300,
-      "status": "empty"
+      "status": "empty",
+      "size": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "density": "155 г/м2",
+      "composition": "100% бавовна"
     },
     {
       "id": 3,
@@ -27,7 +36,16 @@
       "title": "Футболка «A» (червона, unisex)",
       "price": 350,
       "newPrice": 300,
-      "status": "sale"
+      "status": "sale",
+      "size": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "density": "155 г/м2",
+      "composition": "100% бавовна"
     },
     {
       "id": 5,
@@ -41,7 +59,16 @@
       "image": "2.png",
       "title": "Футболка «Дельфіни» (чорна, чоловіча)",
       "price": 300,
-      "status": "empty"
+      "status": "empty",
+      "size": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "density": "155 г/м2",
+      "composition": "100% бавовна"
     },
     {
       "id": 7,
@@ -56,7 +83,16 @@
       "title": "Футболка «A» (червона, unisex)",
       "price": 350,
       "newPrice": 300,
-      "status": "sale"
+      "status": "sale",
+      "size": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "density": "155 г/м2",
+      "composition": "100% бавовна"
     },
     {
       "id": 9,
@@ -70,7 +106,16 @@
       "image": "2.png",
       "title": "Футболка «Дельфіни» (чорна, чоловіча)",
       "price": 300,
-      "status": "empty"
+      "status": "empty",
+      "size": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "density": "155 г/м2",
+      "composition": "100% бавовна"
     },
     {
       "id": 11,
@@ -85,7 +130,16 @@
       "title": "Футболка «A» (червона, unisex)",
       "price": 350,
       "newPrice": 300,
-      "status": "sale"
+      "status": "sale",
+      "size": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "density": "155 г/м2",
+      "composition": "100% бавовна"
     },
     {
       "id": 13,
@@ -99,7 +153,16 @@
       "image": "2.png",
       "title": "Футболка «Дельфіни» (чорна, чоловіча)",
       "price": 300,
-      "status": "empty"
+      "status": "empty",
+      "size": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "density": "155 г/м2",
+      "composition": "100% бавовна"
     },
     {
       "id": 15,
@@ -114,7 +177,16 @@
       "title": "Футболка «A» (червона, unisex)",
       "price": 350,
       "newPrice": 300,
-      "status": "sale"
+      "status": "sale",
+      "size": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "density": "155 г/м2",
+      "composition": "100% бавовна"
     }
   ]
 }

@@ -1,6 +1,6 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import axios from "axios";
+import { onMounted, computed, watch } from "vue";
+import { useStore } from "vuex";
 import MerchItem from "@/components/MerchItem.vue";
 import ButtonArrow from "@/components/ButtonArrow.vue";
 
@@ -22,21 +22,17 @@ const props = defineProps({
     required: false,
   },
 });
-const products = ref([]);
-const isProductsLoading = ref(true);
 
-const fetching = async () => {
-  try {
-    const response = await axios.get("http://localhost:3000/product");
-    products.value = response.data;
-  } catch (error) {
-    alert("Ошибка");
-  } finally {
-    isProductsLoading.value = false;
-  }
-};
+const store = useStore();
+const products = computed(() => store.state.products);
+const isLoading = computed(() => store.state.isLoading);
+const fetchProducts = () => store.dispatch("fetchingProducts");
 
-onMounted(fetching);
+onMounted(() => {
+  fetchProducts();
+});
+
+watch(() => products, fetchProducts());
 </script>
 
 <template>
@@ -52,7 +48,7 @@ onMounted(fetching);
       :link="link ? { href: '/store', label: 'Переглянути весь мерч' } : null"
     >
       <div class="merch-block__wrap">
-        <div class="merch-block__items">
+        <div v-if="!isLoading" class="merch-block__items">
           <merch-item
             class="merch-block__item"
             v-for="item in products.slice(0, 4)"
@@ -60,6 +56,8 @@ onMounted(fetching);
             :item="item"
           />
         </div>
+        <h3 v-else>Загрузка...</h3>
+
         <div class="merch-block__bnt btn-arrow">
           <button-arrow styles="left" />
           <button-arrow styles="right" />

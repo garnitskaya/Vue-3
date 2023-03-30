@@ -1,57 +1,65 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref, onMounted, watch } from "vue";
+import { useStore } from "vuex";
+import { useRoute } from "vue-router";
 import SocialLink from "@/components/SocialLink.vue";
 import StatusItem from "@/components/StatusItem.vue";
 import StoreWrap from "@/components/StoreWrap.vue";
 import MerchBlock from "@/components/MerchBlock.vue";
 
-const item = {
-  id: 4,
-  title: "Футболка «A» (червона, unisex)",
-  price: 350,
-  newPrice: 300,
-  status: "sale",
-  composition: "100% бавовна",
-  density: "155 г/м2",
-  size: ["xs", "s", "m", "l", "xl"],
-};
-
 const size = ref("l");
+
+const store = useStore();
+const route = useRoute();
+const id = route.params.id;
+
+const product = computed(() => store.getters.getProduct);
+const isLoading = computed(() => store.state.isLoading);
+const fetchProduct = () => store.dispatch("fetchingProduct", id);
+
+onMounted(() => {
+  fetchProduct(id);
+});
+watch(() => id, fetchProduct(id));
 </script>
 
 <template>
-  <store-wrap>
+  <store-wrap v-if="!isLoading">
     <div class="item__wrap">
       <status-item
         :position="0"
-        v-if="item.status != 'empty'"
-        :color="item.status === 'new' ? '#59AD02' : '#FF1E00'"
+        v-if="product.status != 'empty'"
+        :color="product.status === 'new' ? '#59AD02' : '#FF1E00'"
       >
-        {{ item.status }}
+        {{ product.status }}
       </status-item>
 
       <div class="item__img">
-        <u-img :src="`/images/magnets_${item.id}.png`" :alt="item.title" />
+        <u-img :src="`/images/magnets_${product.image}`" :alt="product.title" />
       </div>
       <div class="item__block">
-        <div class="item__name">{{ item.title }}</div>
+        <div class="item__name">{{ product.title }}</div>
         <div class="item__price">
-          <span :class="{ 'item__price-old': item.newPrice }">
-            {{ item.price }} ₴
+          <span :class="{ 'item__price-old': product.newPrice }">
+            {{ product.price }} ₴
           </span>
-          <span v-if="item.newPrice" class="item__price-new">
-            {{ item.newPrice }} ₴
+          <span v-if="product.newPrice" class="item__price-new">
+            {{ product.newPrice }} ₴
           </span>
         </div>
-        <div class="item__composition">Склад: 100% бавовна</div>
-        <div class="item__density">Щільність: {{ item.density }}</div>
-        <div class="item__size size">
+        <div v-if="product.composition" class="item__composition">
+          Склад: {{ product.composition }}
+        </div>
+        <div v-if="product.density" class="item__density">
+          Щільність: {{ product.density }}
+        </div>
+        <div v-if="product.size" class="item__size size">
           Розмір:
           <div class="size__items">
             <span
               @click="size = s"
               :class="['size__item', { active: size === s }]"
-              v-for="s in item.size"
+              v-for="s in product.size"
               :key="s"
             >
               {{ s }}
@@ -81,6 +89,7 @@ const size = ref("l");
       </div>
     </div>
   </store-wrap>
+  <h3 v-else>Загрузка...</h3>
   <merch-block class="merch-block" left title="Вам також може сподобатися:" />
 </template>
 

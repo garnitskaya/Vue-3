@@ -1,9 +1,24 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
-import axios from "axios";
+import { useStore } from "vuex";
+import { useRoute } from "vue-router";
 import MerchItem from "@/components/MerchItem.vue";
 import FiltersItem from "@/components/FiltersItem.vue";
 import StoreWrap from "@/components/StoreWrap.vue";
+
+const store = useStore();
+
+const products = computed(() => store.state.products);
+const filter = computed(() => store.state.filter);
+const isLoading = computed(() => store.state.isLoading);
+
+const filterChange = (name) => store.commit("setFilterProducts", name);
+
+const fetchProducts = () => store.dispatch("fetchingProducts");
+
+onMounted(() => {
+  fetchProducts();
+});
 
 const filtersBtn = [
   { name: "new", label: "NEW" },
@@ -15,31 +30,92 @@ const filtersBtn = [
   { name: "accessories", label: "АКСЕСУАРИ" },
 ];
 
-const filter = ref("all");
+//export default {
+//  components: {
+//    PostList,
+//    PostForm,
+//    Pagination,
+//  },
+//  setup() {
+//    const store = useStore();
 
-const products = ref([]);
-const isProductsLoading = ref(true);
+//    const dialogVisible = ref(false);
 
-const fetching = async () => {
-  try {
-    const response = await axios.get("http://localhost:3000/product");
-    products.value = response.data;
-  } catch (error) {
-    alert("Ошибка");
-  } finally {
-    isProductsLoading.value = false;
-  }
-};
+//    const setPage = (page) => {
+//      store.commit("post/setPage", page);
+//    };
+//    const setSearchQuery = (query) => {
+//      store.commit("post/setSearchQuery", query);
+//    };
+//    const setSelectedSort = (sort) => {
+//      store.commit("post/setSelectedSort", sort);
+//    };
 
-onMounted(fetching);
+//    const loadMorePosts = () => {
+//      store.dispatch("post/loadMorePosts");
+//    };
+//    const fetchPosts = () => {
+//      store.dispatch("post/fetchPosts");
+//    };
 
-const filterChange = (name) => {
-  filter.value = name;
-};
+//    const createPost = (post) => {
+//      store.state.post.posts.push(post);
+//      dialogVisible.value = false;
+//    };
+//    const removePost = (post) => {
+//      store.state.post.posts = store.state.post.posts.filter(
+//        (p) => p.id != post.id
+//      );
+//    };
+//    const showDialog = () => {
+//      dialogVisible.value = true;
+//    };
+
+//    const posts = computed(() => store.state.post.posts);
+//    const isPostsLoading = computed(() => store.state.post.isPostsLoading);
+//    const selectedSort = computed(() => store.state.post.selectedSort);
+//    const searchQuery = computed(() => store.state.post.searchQuery);
+//    const page = computed(() => store.state.post.page);
+//    const limit = computed(() => store.state.post.limit);
+//    const totalPages = computed(() => store.state.post.totalPages);
+//    const sortOptions = computed(() => store.state.post.sortOptions);
+
+//    const sortedPosts = computed(() => store.getters["post/sortedPosts"]);
+//    const sortedAndSearchPosts = computed(
+//      () => store.getters["post/sortedAndSearchPosts"]
+//    );
+
+//    onMounted(() => {
+//      fetchPosts();
+//    });
+
+//    return {
+//      dialogVisible,
+//      setPage,
+//      setSearchQuery,
+//      setSelectedSort,
+//      loadMorePosts,
+//      createPost,
+//      removePost,
+//      showDialog,
+//      posts,
+//      isPostsLoading,
+//      selectedSort,
+//      searchQuery,
+//      page,
+//      limit,
+//      totalPages,
+//      sortOptions,
+//      sortedPosts,
+//      sortedAndSearchPosts,
+//    };
+//  },
+//};
 </script>
 
 <template>
   <store-wrap>
+    {{ query }}
     <a href="/" class="store__logo">
       <u-img src="/images/Antitela.png" alt="logo" />
     </a>
@@ -51,10 +127,10 @@ const filterChange = (name) => {
         @changeFilter="filterChange"
       />
     </div>
-    <div v-if="!isProductsLoading" class="store__content">
+    <div v-if="!isLoading" class="store__content">
       <merch-item v-for="item in products" :key="item" :item="item" />
     </div>
-    <h2 v-else>Загрузка...</h2>
+    <h3 v-else>Загрузка...</h3>
   </store-wrap>
 </template>
 
