@@ -147,8 +147,8 @@ watch(currentPage, generatePages);
   &__number {
     background: none;
     font-family: var(--special-font);
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 0.875rem;
+    line-height: 1.3125rem;
     cursor: pointer;
 
     &.active {

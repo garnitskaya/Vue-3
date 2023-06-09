@@ -38,12 +38,12 @@ const props = defineProps({
   &__title {
     margin-bottom: 16px;
     text-align: center;
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
     @media (max-width: 768px) {
       margin-bottom: 8px;
-      font-size: 22px;
-      line-height: 31px;
+      font-size: 1.375rem;
+      line-height: 1.9375rem;
     }
   }
   &__data {
@@ -51,13 +51,13 @@ const props = defineProps({
     left: 10px;
     font-family: var(--special-font);
     font-weight: 600;
-    font-size: 20px;
-    line-height: 23px;
+    font-size: 1.25rem;
+    line-height: 1.4375rem;
     color: var(--grey-dark);
     @media (max-width: 768px) {
       margin-top: 7px;
-      font-size: 16px;
-      line-height: 23px;
+      font-size: 1rem;
+      line-height: 1.4375rem;
     }
     &::before,
     &::after {
@@ -83,8 +83,8 @@ const props = defineProps({
   &__text {
     margin-bottom: 28px;
     font-family: var(--special-font);
-    font-size: 16px;
-    line-height: 23px;
+    font-size: 1rem;
+    line-height: 1.4375rem;
     @media (max-width: 768px) {
       margin-bottom: 24px;
     }

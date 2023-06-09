@@ -3,13 +3,13 @@ import { ref } from "vue";
 import FiltersItem from "@/components/FiltersItem.vue";
 
 const filtersBtn = [
-  { name: "all", label: "Все" },
+  { name: "", label: "Все" },
   { name: "alboms", label: "Альбоми" },
   { name: "singles", label: "Сингли" },
   { name: "collaborations", label: "Колаборації" },
 ];
 
-const filter = ref("all");
+const filter = ref("");
 
 const filterChange = (name) => {
   filter.value = name;

@@ -74,8 +74,8 @@ const arrPhotos = [
     position: absolute;
     bottom: 16px;
     font-family: var(--special-font);
-    font-size: 16px;
-    line-height: 23px;
+    font-size: 1rem;
+    line-height: 1.4375rem;
     color: var(--white);
     text-align: center;
   }

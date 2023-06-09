@@ -1,56 +1,50 @@
 <script setup>
-import { computed, ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
+  import { computed, ref, onMounted, watch } from 'vue'
+  import { useRoute } from 'vue-router'
+  import { useStore } from 'vuex'
 
-const breadcrumbs = {
-  store: "Мерч",
-  "store/:id": "????",
-};
+  const { getters } = useStore()
+  const product = computed(() => getters.product)
 
-const props = defineProps({});
+  const breadcrumbs = computed(() => ({
+    store: 'Мерч',
+    cart: 'Повернутись до покупок',
+    [`store/${product.value?.id}`]: product.value?.title,
+  }))
 
-const route = useRoute();
-const links = ref([]);
+  const route = useRoute()
+  const links = ref([])
 
-//const links = computed(() => {
-//  const route = useRoute();
-//  const matched = route.matched;
+  const updateLinks = () => {
+    const routePaths = route.path.split('/').filter((path) => path)
 
-//  return matched.map((match, index) => {
-//    const to = matched
-//      .slice(0, index + 1)
-//      .map((m) => m.path)
-//      .join("/");
-//    const name = match.meta.breadcrumb || match.meta.title;
-//    console.log(name, to);
-//    return { to, name };
-//  });
-//});
+    links.value = routePaths.reduce((acc, curPath, i) => {
+      const prevPath = acc[i - 1]
+      const link = prevPath ? `${prevPath}/${curPath}` : curPath
+      return [...acc, link]
+    }, [])
 
-const updateLinks = () => {
-  const routePaths = route.path.split("/").filter((path) => path);
+    const keys = Object.keys(route.query)
+    keys.forEach((key) => {
+      const value = route.query[key]
+      links.value.push(`${key}=${value}`)
+    })
+  }
 
-  // Если маршрут пустой, добавляем ссылку на главную страницу
-  //if (routePaths.length === 0) {
-  //  links.value = [];
-  //  return;
-  //}
+  onMounted(() => updateLinks())
 
-  // Если маршрут не пустой, строим список ссылок на основе текущего маршрута
-  links.value = routePaths.reduce((acc, curPath, i) => {
-    const prevPath = acc[i - 1];
-    const link = prevPath ? `${prevPath}/${curPath}` : curPath;
-    return [...acc, link];
-  }, []);
-};
-// Вызываем метод при инициализации компонента и при изменении маршрута
-onMounted(() => updateLinks());
-//route && route.path && updateLinks();
+  watch(
+    () => product.value.id,
+    () => updateLinks()
+  )
 </script>
 
 <template>
   <div class="breadcrumbs">
-    <router-link to="/" class="breadcrumbs__link">
+    <router-link
+      to="/"
+      class="breadcrumbs__link"
+    >
       <svg
         width="18"
         height="18"
@@ -73,7 +67,11 @@ onMounted(() => updateLinks());
       </svg>
     </router-link>
 
-    <span class="breadcrumbs__link" v-for="link in links" :key="link">
+    <span
+      class="breadcrumbs__link"
+      v-for="link in links"
+      :key="link"
+    >
       <svg
         class="separator"
         width="15"
@@ -89,31 +87,40 @@ onMounted(() => updateLinks());
           stroke-linejoin="round"
         />
       </svg>
+      <router-link
+        v-if="link === 'cart'"
+        :to="'/store'"
+      >
+        {{ breadcrumbs[link] }}
+      </router-link>
 
-      <router-link :to="'/' + link">
-        {{ breadcrumbs[link] || "config array" }}
+      <router-link
+        v-else
+        :to="'/' + link"
+      >
+        {{ breadcrumbs[link] }}
       </router-link>
     </span>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.breadcrumbs {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  color: var(--grey-dark);
-  &__link {
+  .breadcrumbs {
+    margin-top: 24px;
     display: flex;
     align-items: center;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.3125rem;
+    color: var(--grey-dark);
+    &__link {
+      display: flex;
+      align-items: center;
+    }
+    .separator {
+      margin: 0 4px;
+    }
   }
-  .separator {
-    margin: 0 4px;
-  }
-}
 </style>

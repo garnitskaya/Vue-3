@@ -3,6 +3,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "u-button",
+  emits: ["addItems"],
   props: {
     styles: {
       type: String,
@@ -19,11 +20,22 @@ export default defineComponent({
       },
     },
   },
+
+  setup(props, { emit }) {
+    const onClickButton = () => {
+      emit("addItems");
+    };
+
+    return { onClickButton };
+  },
 });
 </script>
 
 <template>
-  <button :class="['btn', `btn_${styles}`, `btn_${size}`]">
+  <button
+    @click="onClickButton"
+    :class="['btn', `btn_${styles}`, `btn_${size}`]"
+  >
     <slot />
   </button>
 </template>

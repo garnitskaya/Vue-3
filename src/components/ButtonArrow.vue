@@ -61,7 +61,7 @@ const props = defineProps({
   background: none;
   cursor: pointer;
   top: 28%;
-  left: 8px;
+  left: 0.5rem;
   transition: 0.4s;
   &:hover {
     scale: 1.2;
@@ -72,7 +72,7 @@ const props = defineProps({
 
   &-right {
     transform: rotate(180deg);
-    right: 8px;
+    right: 0.5rem;
     left: auto;
   }
   &-right.btn-center {

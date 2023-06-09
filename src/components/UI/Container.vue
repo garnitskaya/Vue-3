@@ -92,14 +92,14 @@ export default defineComponent({
     &-left {
       margin-bottom: 24px;
       text-align: left;
-      font-size: 20px;
-      line-height: 28px;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
       @media (max-width: 768px) {
         padding: 0 28px;
       }
       @media (max-width: 480px) {
-        font-size: 22px;
-        line-height: 31px;
+        font-size: 1.375rem;
+        line-height: 1.9375rem;
       }
     }
     @media (max-width: 768px) {

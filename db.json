@@ -5,14 +5,14 @@
       "image": "1.png",
       "title": "Магніт «АНТИТІЛА» 10Х6СМ",
       "price": 300,
-      "status": "new"
+      "status": "new",
+      "category": "accessories"
     },
     {
       "id": 2,
       "image": "2.png",
       "title": "Футболка «Дельфіни» (чорна, чоловіча)",
       "price": 300,
-      "status": "empty",
       "size": [
         "xs",
         "s",
@@ -21,14 +21,15 @@
         "xl"
       ],
       "density": "155 г/м2",
-      "composition": "100% бавовна"
+      "composition": "100% бавовна",
+      "category": "t-shirts"
     },
     {
       "id": 3,
       "image": "3.png",
       "title": "Магніт «Антитіла HELLO» 9х6см",
       "price": 30,
-      "status": "empty"
+      "category": "accessories"
     },
     {
       "id": 4,
@@ -45,21 +46,22 @@
         "xl"
       ],
       "density": "155 г/м2",
-      "composition": "100% бавовна"
+      "composition": "100% бавовна",
+      "category": "t-shirts"
     },
     {
       "id": 5,
       "image": "1.png",
       "title": "Магніт «АНТИТІЛА» 10Х6СМ",
       "price": 300,
-      "status": "new"
+      "status": "new",
+      "category": "accessories"
     },
     {
       "id": 6,
       "image": "2.png",
       "title": "Футболка «Дельфіни» (чорна, чоловіча)",
       "price": 300,
-      "status": "empty",
       "size": [
         "xs",
         "s",
@@ -68,14 +70,15 @@
         "xl"
       ],
       "density": "155 г/м2",
-      "composition": "100% бавовна"
+      "composition": "100% бавовна",
+      "category": "t-shirts"
     },
     {
       "id": 7,
       "image": "3.png",
       "title": "Магніт «Антитіла HELLO» 9х6см",
       "price": 30,
-      "status": "empty"
+      "category": "accessories"
     },
     {
       "id": 8,
@@ -92,21 +95,22 @@
         "xl"
       ],
       "density": "155 г/м2",
-      "composition": "100% бавовна"
+      "composition": "100% бавовна",
+      "category": "t-shirts"
     },
     {
       "id": 9,
       "image": "1.png",
       "title": "Магніт «АНТИТІЛА» 10Х6СМ",
       "price": 300,
-      "status": "new"
+      "status": "new",
+      "category": "accessories"
     },
     {
       "id": 10,
       "image": "2.png",
       "title": "Футболка «Дельфіни» (чорна, чоловіча)",
       "price": 300,
-      "status": "empty",
       "size": [
         "xs",
         "s",
@@ -115,14 +119,15 @@
         "xl"
       ],
       "density": "155 г/м2",
-      "composition": "100% бавовна"
+      "composition": "100% бавовна",
+      "category": "t-shirts"
     },
     {
       "id": 11,
       "image": "3.png",
       "title": "Магніт «Антитіла HELLO» 9х6см",
       "price": 30,
-      "status": "empty"
+      "category": "accessories"
     },
     {
       "id": 12,
@@ -139,21 +144,22 @@
         "xl"
       ],
       "density": "155 г/м2",
-      "composition": "100% бавовна"
+      "composition": "100% бавовна",
+      "category": "t-shirts"
     },
     {
       "id": 13,
       "image": "1.png",
       "title": "Магніт «АНТИТІЛА» 10Х6СМ",
       "price": 300,
-      "status": "new"
+      "status": "new",
+      "category": "accessories"
     },
     {
       "id": 14,
       "image": "2.png",
       "title": "Футболка «Дельфіни» (чорна, чоловіча)",
       "price": 300,
-      "status": "empty",
       "size": [
         "xs",
         "s",
@@ -162,14 +168,15 @@
         "xl"
       ],
       "density": "155 г/м2",
-      "composition": "100% бавовна"
+      "composition": "100% бавовна",
+      "category": "t-shirts"
     },
     {
       "id": 15,
       "image": "3.png",
       "title": "Магніт «Антитіла HELLO» 9х6см",
       "price": 30,
-      "status": "empty"
+      "category": "accessories"
     },
     {
       "id": 16,
@@ -186,7 +193,8 @@
         "xl"
       ],
       "density": "155 г/м2",
-      "composition": "100% бавовна"
+      "composition": "100% бавовна",
+      "category": "t-shirts"
     }
   ]
 }

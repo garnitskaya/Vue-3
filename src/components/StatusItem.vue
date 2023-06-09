@@ -30,7 +30,7 @@ const props = defineProps({
   top: 12px;
   left: 12px;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--white);
   border-radius: 5px;
 }

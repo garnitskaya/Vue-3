@@ -1,4 +1,6 @@
 <script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
 import MenuLink from "@/components/MenuLink.vue";
 import Hamburger from "@/components/Hamburger.vue";
 import useOpenMenu from "@/hooks/useOpenMenu";
@@ -9,17 +11,19 @@ const links = [
   { name: "Угода користувача", to: "#" },
 ];
 const { isMenuOpen, openMenu } = useOpenMenu();
+const { getters } = useStore();
+const cartItems = computed(() => getters.cart);
 </script>
 
 <template>
   <div class="header-store">
-    <a
+    <router-link
       v-if="$route.path !== '/store' && $route.path !== '/store/'"
-      href="/"
+      to="/"
       class="header-store__logo"
     >
       <u-img src="/images/Antitela.png" alt="logo" />
-    </a>
+    </router-link>
 
     <container>
       <div class="header-store__wrap">
@@ -56,7 +60,16 @@ const { isMenuOpen, openMenu } = useOpenMenu();
               />
             </svg>
           </div>
-          <div class="header-store__cart">
+          <router-link to="/cart" class="header-store__cart">
+            <span
+              :class="[
+                'header-store__quantity',
+                { 'header-store__quantity-big': cartItems.length > 9 },
+              ]"
+              v-if="cartItems.length > 0"
+            >
+              {{ cartItems.length }}
+            </span>
             <svg
               width="24"
               height="24"
@@ -77,7 +90,7 @@ const { isMenuOpen, openMenu } = useOpenMenu();
                 stroke-linejoin="round"
               />
             </svg>
-          </div>
+          </router-link>
         </div>
       </div>
     </container>
@@ -108,6 +121,7 @@ const { isMenuOpen, openMenu } = useOpenMenu();
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 10;
     @media (max-width: 480px) {
       top: 2px;
       width: 94px;
@@ -116,8 +130,8 @@ const { isMenuOpen, openMenu } = useOpenMenu();
   }
   &__menu {
     font-weight: 300;
-    font-size: 14px;
-    line-height: 19px;
+    font-size: 0.875rem;
+    line-height: 1.1875rem;
     transition: 0.3s all;
     & :first-child {
       margin: 0 24px 0 0;
@@ -140,6 +154,34 @@ const { isMenuOpen, openMenu } = useOpenMenu();
   &__search,
   &__cart {
     cursor: pointer;
+  }
+  &__cart {
+    position: relative;
+  }
+  &__quantity {
+    padding: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    font-family: var(--num-font);
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: var(--white);
+    background: var(--red);
+    border-radius: 50%;
+    border: 1px solid var(--grey);
+    &-big {
+      width: 17px;
+      height: 17px;
+      right: -4px;
+      top: -4px;
+    }
   }
 }
 </style>

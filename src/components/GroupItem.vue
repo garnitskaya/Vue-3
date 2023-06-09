@@ -71,20 +71,20 @@ const props = defineProps({
   &__block {
   }
   &__name {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
   &__position {
     margin-top: 5px;
     font-family: var(--special-font);
-    font-size: 16px;
-    line-height: 23px;
+    font-size: 1rem;
+    line-height: 1.4375rem;
   }
   &__text {
     margin-top: 8px;
     font-family: var(--special-font);
-    font-size: 16px;
-    line-height: 23px;
+    font-size: 1rem;
+    line-height: 1.4375rem;
   }
   &__socials {
     margin-top: 12px;

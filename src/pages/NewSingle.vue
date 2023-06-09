@@ -123,8 +123,8 @@ const linksSocials = [
 .new {
   &__date {
     text-align: center;
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 0.875rem;
+    line-height: 1.3125rem;
     color: var(--grey-dark);
   }
   &__block {
@@ -140,8 +140,8 @@ const linksSocials = [
   }
   &__text {
     font-family: var(--special-font);
-    font-size: 16px;
-    line-height: 23px;
+    font-size: 1rem;
+    line-height: 1.4375rem;
   }
   &__video,
   &__image {

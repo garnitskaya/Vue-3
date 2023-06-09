@@ -10,12 +10,12 @@ const props = defineProps({
   },
   filter: {
     type: String,
-    default: "all",
+    default: "",
     validator(value) {
       return (
-        ["all", "alboms", "singles", "collaborations"].includes(value) ||
+        ["", "alboms", "singles", "collaborations"].includes(value) ||
         [
-          "all",
+          "",
           "new",
           "sale",
           "candies",
@@ -30,7 +30,7 @@ const props = defineProps({
 const emits = defineEmits(["changeFilter"]);
 
 const filterChange = (name) => {
-  console.log(name);
+  //console.log(name);
   emits("changeFilter", name);
 };
 </script>
@@ -75,7 +75,7 @@ const filterChange = (name) => {
     }
     &-store {
       font-weight: 300;
-      font-size: 18px;
+      font-size: 1.125rem;
       line-height: 25px;
       text-transform: uppercase;
       &.active {

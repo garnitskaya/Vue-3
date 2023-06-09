@@ -20,8 +20,8 @@ const props = defineProps({
 <style lang="scss" scoped>
 .link {
   font-weight: 300;
-  font-size: 14px;
-  line-height: 19px;
+  font-size: 0.875rem;
+  line-height: 1.1875rem;
   &-white {
     color: var(--white);
   }
