@@ -113,16 +113,46 @@
     grid-template-columns: 1fr 300px 235px auto;
     align-items: center;
     gap: 24px;
-
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr 230px 200px auto;
+    }
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr 2fr auto;
+      gap: 0 24px;
+    }
+    @media (max-width: 480px) {
+      gap: 0;
+      padding: 16px 16px 24px;
+    }
+    &__block {
+      @media (max-width: 1024px) {
+        align-self: flex-end;
+      }
+      @media (max-width: 480px) {
+        margin: 0 0 0 16px;
+      }
+    }
     &__img {
       width: 152px;
       height: auto;
+      @media (max-width: 1024px) {
+        grid-row: 1/3;
+      }
+      @media (max-width: 992px) {
+        width: 136px;
+      }
+      @media (max-width: 480px) {
+        width: 86px;
+      }
     }
 
     &__name {
       font-size: 0.875rem;
       line-height: 1.1875rem;
       white-space: nowrap;
+      @media (max-width: 1200px) {
+        white-space: wrap;
+      }
     }
     &__size {
       margin-top: 8px;
@@ -133,11 +163,21 @@
         color: var(--black);
         text-transform: uppercase;
       }
+      @media (max-width: 480px) {
+        margin: 0;
+      }
     }
     &__order-block {
       display: flex;
       align-items: center;
       gap: 24px;
+      @media (max-width: 1024px) {
+        grid-column: 2/3;
+      }
+      @media (max-width: 480px) {
+        gap: 16px;
+        margin: 0 0 0 16px;
+      }
     }
     &__price {
       font-size: 1.125rem;
@@ -150,9 +190,15 @@
         font-weight: 300;
         text-decoration: line-through;
         color: var(--grey-dark);
+        @media (max-width: 480px) {
+          margin: 0;
+        }
       }
     }
     .order-block {
+      @media (max-width: 1024px) {
+        align-self: flex-start;
+      }
       &__items {
         display: flex;
         justify-content: space-between;
@@ -165,6 +211,11 @@
         text-align: center;
         font-size: 1.125rem;
         line-height: 1.5625rem;
+        @media (max-width: 1024px) {
+          padding: 12px 0;
+          border: none;
+          width: 70px;
+        }
       }
 
       &__item {
@@ -178,6 +229,13 @@
     &__btn {
       background: transparent;
       cursor: pointer;
+      @media (max-width: 1024px) {
+        grid-column: 3/4;
+        grid-row: 1/3;
+      }
+      @media (max-width: 480px) {
+        align-self: flex-start;
+      }
     }
   }
 </style>

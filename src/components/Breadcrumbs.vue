@@ -109,9 +109,7 @@
     margin-top: 24px;
     display: flex;
     align-items: center;
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
+    font-family: var(--special-font);
     font-size: 0.875rem;
     line-height: 1.3125rem;
     color: var(--grey-dark);
