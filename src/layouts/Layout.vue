@@ -6,7 +6,12 @@ import FooterBlock from "@/components/FooterBlock.vue";
 export default defineComponent({
   name: "default-layout",
   components: { HeaderMenu, FooterBlock },
-
+  props: {
+    menu: {
+      type: Boolean,
+      default:true
+    }
+  },
   setup() {
     const linksSocials = [
       { name: "youtube", to: "#" },
@@ -22,7 +27,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <header-menu :linksSocials="linksSocials" />
+  <header-menu v-if="menu" :linksSocials="linksSocials" />
   <main class="main-container">
     <slot />
   </main>

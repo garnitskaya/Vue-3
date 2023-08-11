@@ -1,100 +1,121 @@
-import { createStore } from 'vuex'
-import axios from "axios"
+import { createStore } from "vuex";
+import axios from "axios";
 
 const store = createStore({
   state: () => ({
     products: [],
     product: {},
     isLoading: false,
-    filter: '',
-    cart: []
+    filter: "",
+    cart: JSON.parse(localStorage.getItem("itemsCard")) || [],
+    orderData: {
+      contacts: JSON.parse(localStorage.getItem("contacts")) || {},
+      delivery: localStorage.getItem("delivery") || "",
+      pay: localStorage.getItem("pay") || "",
+      order: JSON.parse(localStorage.getItem("itemsCard")) || [],
+      privacyPolicy:localStorage.getItem("privacyPolicy") || 'true',
+    },
   }),
   getters: {
     products(state) {
-      return state.products
+      return state.products;
     },
     product(state) {
-      return state.product
+      return state.product;
     },
     cart(state) {
-      return state.cart
+      return state.cart;
     },
     filter(state) {
-      return state.filter
+      return state.filter;
     },
     isLoading(state) {
-      return state.isLoading
-    }
+      return state.isLoading;
+    },
+    orderData(state) {
+      return state.orderData;
+    },
   },
   mutations: {
     setLoading(state, bool) {
-      state.isLoading = bool
+      state.isLoading = bool;
     },
     setProducts(state, products) {
-      state.products = products
+      state.products = products;
     },
     setProduct(state, product) {
-      state.product = product
+      state.product = product;
     },
     setFilterProducts(state, filter) {
-      state.filter = filter
+      state.filter = filter;
     },
     setCart(state, product) {
-      const findItem = state.cart.find(item => item.id === product.id && item.size === product.size)
+      const findItem = state.cart.find(
+        (item) => item.id === product.id && item.size === product.size
+      );
       if (findItem) {
-        findItem.quantity++
+        findItem.quantity++;
       } else {
-        state.cart.push(product)
+        state.cart.push(product);
       }
     },
     removeFromCart(state, index) {
-      state.cart.splice(index, 1)
+      state.cart.splice(index, 1);
     },
     increment(state, index) {
-      state.cart[index].quantity++
+      state.cart[index].quantity++;
     },
     decrement(state, index) {
-      state.cart[index].quantity--
-    }
+      state.cart[index].quantity--;
+    },
+    setOrderData(state, data) {
+      state.orderData = { ...state.orderData, ...data };
+    },
   },
   actions: {
     async fetchingProducts({ commit }, filter) {
       try {
-        commit('setLoading', true)
-        const filterTitle = (filter == 'new' || filter == 'sale') ? `status=${filter}` : `category=${filter}`
-        const response = await axios.get(`http://localhost:3000/products?${filter && filterTitle}`);
-        commit('setProducts', response.data)
+        commit("setLoading", true);
+        const filterTitle =
+          filter == "new" || filter == "sale" ? `status=${filter}` : `category=${filter}`;
+        const response = await axios.get(
+          `http://localhost:3000/products?${filter && filterTitle}`
+        );
+        commit("setProducts", response.data);
       } catch (error) {
         console.log("Ошибка", error.message);
       } finally {
-        commit('setLoading', false)
+        commit("setLoading", false);
       }
     },
 
     async fetchingProduct({ commit }, id) {
       try {
-        commit('setLoading', true)
+        commit("setLoading", true);
         const response = await axios.get(`http://localhost:3000/products/${id}`);
-        commit('setProduct', response.data)
+        commit("setProduct", response.data);
       } catch (error) {
         console.log("Ошибка", error.message);
       } finally {
-        commit('setLoading', false)
+        commit("setLoading", false);
       }
     },
     addToCart({ commit }, item) {
-      commit('setCart', item)
+      commit("setCart", item);
     },
     deleteFromCart({ commit }, index) {
-      commit('removeFromCart', index)
+      commit("removeFromCart", index);
     },
     decrementItem({ commit }, index) {
-      commit('decrement', index)
+      commit("decrement", index);
     },
     incrementItem({ commit }, index) {
-      commit('increment', index)
-    }
+      commit("increment", index);
+    },
+    orderData({ commit }, data) {
+      commit("setOrderData", data);
+    },
   },
-})
+});
 
-export default store
+export default store;

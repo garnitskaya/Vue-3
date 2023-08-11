@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from "vue";
+import { computed, watch } from "vue";
 import { useStore } from "vuex";
 import MenuLink from "@/components/MenuLink.vue";
 import Hamburger from "@/components/Hamburger.vue";
@@ -13,6 +13,10 @@ const links = [
 const { isMenuOpen, openMenu } = useOpenMenu();
 const { getters } = useStore();
 const cartItems = computed(() => getters.cart);
+
+watch(cartItems.value, () =>
+  localStorage.setItem("itemsCard", JSON.stringify(cartItems.value))
+);
 </script>
 
 <template>
@@ -29,11 +33,7 @@ const cartItems = computed(() => getters.cart);
       <div class="header-store__wrap">
         <hamburger color="black" :active="isMenuOpen" @menuClick="openMenu" />
         <div :class="['header-store__menu', { active: isMenuOpen }]">
-          <menu-link
-            v-for="link in links.slice(0, 2)"
-            :key="link.name"
-            :link="link"
-          />
+          <menu-link v-for="link in links.slice(0, 2)" :key="link.name" :link="link" />
         </div>
 
         <div class="header-store__icons">
