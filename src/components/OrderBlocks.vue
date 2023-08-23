@@ -2,10 +2,11 @@
 import { computed, ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import { nanoid } from "nanoid";
 import CartItem from "@/components/CartItem.vue";
 import { calcTotalPrice, calcTotalDiscount } from "@/utils/calcTotalPrice.js";
 
-const { getters } = useStore();
+const { getters, dispatch } = useStore();
 const cartItems = computed(() => getters.cart);
 const orderData = computed(() => getters.orderData);
 
@@ -28,7 +29,10 @@ const sendOrder = () => {
   if (!props.isNotEmpty) return;
   router.push("thanks");
   console.log(orderData.value);
-  orderData.value = {};
+  dispatch("sendOrder", {
+    id: nanoid(),
+    ...orderData.value,
+  });
   localStorage.clear();
 };
 </script>

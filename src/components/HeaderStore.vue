@@ -13,10 +13,13 @@ const links = [
 const { isMenuOpen, openMenu } = useOpenMenu();
 const { getters } = useStore();
 const cartItems = computed(() => getters.cart);
+const orderData = computed(() => getters.orderData);
 
 watch(cartItems.value, () =>
   localStorage.setItem("itemsCard", JSON.stringify(cartItems.value))
 );
+
+watch(cartItems.value, () => (orderData.value.order = cartItems.value));
 </script>
 
 <template>

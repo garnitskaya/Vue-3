@@ -13,7 +13,7 @@ const store = createStore({
       delivery: localStorage.getItem("delivery") || "",
       pay: localStorage.getItem("pay") || "",
       order: JSON.parse(localStorage.getItem("itemsCard")) || [],
-      privacyPolicy: localStorage.getItem("privacyPolicy") || 'true',
+      privacyPolicy: localStorage.getItem("privacyPolicy") || "true",
     },
   }),
   getters: {
@@ -71,13 +71,27 @@ const store = createStore({
     setOrderData(state, data) {
       state.orderData = { ...state.orderData, ...data };
     },
+    deleteCartData(state) {
+      state.cart = [];
+    },
+    deleteOrderData(state) {
+      state.orderData = {
+        contacts: {},
+        delivery: "",
+        pay: "",
+        order: [],
+        privacyPolicy: "true",
+      }
+    },
   },
   actions: {
     async fetchingProducts({ commit }, filter) {
       try {
         commit("setLoading", true);
         const filterTitle =
-          filter == "new" || filter == "sale" ? `status=${filter}` : `category=${filter}`;
+          filter == "new" || filter == "sale"
+            ? `status=${filter}`
+            : `category=${filter}`;
         const response = await axios.get(
           `http://localhost:3000/products?${filter && filterTitle}`
         );
@@ -92,8 +106,26 @@ const store = createStore({
     async fetchingProduct({ commit }, id) {
       try {
         commit("setLoading", true);
-        const response = await axios.get(`http://localhost:3000/products/${id}`);
+        const response = await axios.get(
+          `http://localhost:3000/products/${id}`
+        );
         commit("setProduct", response.data);
+      } catch (error) {
+        console.log("Ошибка", error.message);
+      } finally {
+        commit("setLoading", false);
+      }
+    },
+    async sendOrder({ commit }, data) {
+      try {
+        commit("setLoading", true);
+        const response = await axios.post(
+          `http://localhost:3000/orders/`,
+          data
+        );
+        console.log(response.data);
+        commit("deleteCartData");
+        commit("deleteOrderData");
       } catch (error) {
         console.log("Ошибка", error.message);
       } finally {

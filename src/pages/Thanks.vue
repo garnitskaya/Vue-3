@@ -1,6 +1,9 @@
 <script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
 import WrapPage from "@/components/WrapPage.vue";
 import SocialLink from "@/components/SocialLink.vue";
+import ThanksSkeleton from "@/components/ThanksSkeleton.vue";
 
 const linksSocials = [
   { name: "youtube", to: "#" },
@@ -9,11 +12,13 @@ const linksSocials = [
   { name: "facebook", to: "#" },
   { name: "instagram", to: "#" },
 ];
+const { getters } = useStore();
+const isLoading = computed(() => getters.isLoading);
 </script>
 
 <template>
   <wrap-page class="thanks">
-    <div class="thanks__wrap">
+    <div v-if="!isLoading" class="thanks__wrap">
       <div class="thanks__img">
         <u-img src="/icons/check-circle.png" alt="check" />
       </div>
@@ -33,6 +38,9 @@ const linksSocials = [
       <u-button @click="$router.push('/')" size="big" styles="red">
         Повернутися на головну
       </u-button>
+    </div>
+    <div class="thanks__wrap" v-else>
+      <thanks-skeleton />
     </div>
   </wrap-page>
 </template>
