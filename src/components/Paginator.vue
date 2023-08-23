@@ -56,7 +56,6 @@ onMounted(() => {
 watch(currentPage, generatePages);
 </script>
 
-
 <template>
   <div class="paginator">
     <div class="paginator__wrap">

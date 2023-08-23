@@ -26,7 +26,6 @@ const linksSocials = [
           <hr class="new__line" />
           <div class="new__links">
             <social-link
-              big
               v-for="link in linksSocials"
               :key="link.name"
               :link="link"

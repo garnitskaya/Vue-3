@@ -9,7 +9,6 @@ const props = defineProps({
 });
 </script>
 
-
 <template>
   <div class="item">
     <div class="item__img border-class">
@@ -30,8 +29,6 @@ const props = defineProps({
     </div>
   </div>
 </template>
-
-
 
 <style lang="scss" scoped>
 .item {

@@ -5,18 +5,23 @@ import OrderBlocks from "@/components/OrderBlocks.vue";
 import FormContacts from "@/components/FormContacts.vue";
 import FormDelivery from "@/components/FormDelivery.vue";
 import FormPay from "@/components/FormPay.vue";
+import WrapPage from "@/components/WrapPage.vue";
 import { useStore } from "vuex";
 
 const { dispatch, getters } = useStore();
 
 const orderData = computed(() => getters.orderData);
-const isNotEmpty = computed(() => Object.values(orderData.value).every((item) => item));
+const isNotEmpty = computed(() =>
+  Object.values(orderData.value).every((item) => item)
+);
 
 const editModeContacts = ref(true);
 const editModeDelivery = ref(true);
 const editModePay = ref(true);
 
-const checkedValuePrivacy = ref(localStorage.getItem("privacyPolicy") || "true");
+const checkedValuePrivacy = ref(
+  localStorage.getItem("privacyPolicy") || "true"
+);
 
 const isOpenBlockDelivery = ref(true);
 const isOpenBlockPay = ref(true);
@@ -92,111 +97,87 @@ watch(
 </script>
 
 <template>
-  <div class="order">
-    <container>
-      <div class="order__logo">
-        <a class="order__link" href="/">
-          <u-img src="/images/Antitela.png" alt="logo" />
-        </a>
+  <wrap-page bg class="order">
+    <div class="order__wrap">
+      <div class="order__block-left">
+        <cart-order-block title="Контактні дані" :isOpenBlock="false">
+          <template #header v-if="!editModeContacts">
+            <div @click="changeEditMode('contacts')" class="order__edit">
+              Редагувати
+            </div>
+          </template>
+          <template #default>
+            <form-contacts
+              :editMode="editModeContacts"
+              @setEditMode="changeEditMode('contacts')"
+            />
+          </template>
+        </cart-order-block>
+
+        <cart-order-block title="Доставка" :isOpenBlock="isOpenBlockDelivery">
+          <template #header v-if="!editModeDelivery">
+            <div @click="changeEditMode('delivery')" class="order__edit">
+              Редагувати
+            </div>
+          </template>
+          <template #default>
+            <form-delivery
+              :editMode="editModeDelivery"
+              @setEditMode="changeEditMode('delivery')"
+            />
+          </template>
+        </cart-order-block>
+
+        <cart-order-block title="Оплата" :isOpenBlock="isOpenBlockPay">
+          <template #header v-if="!editModePay">
+            <div @click="changeEditMode('pay')" class="order__edit">
+              Редагувати
+            </div>
+          </template>
+          <template #default>
+            <form-pay
+              :editMode="editModePay"
+              @setEditMode="changeEditMode('pay')"
+            />
+          </template>
+        </cart-order-block>
       </div>
-      <div class="order__wrap">
-        <div class="order__block-left">
-          <cart-order-block title="Контактні дані" :isOpenBlock="false">
-            <template #header v-if="!editModeContacts">
-              <div @click="changeEditMode('contacts')" class="order__edit">
-                Редагувати
-              </div>
-            </template>
-            <template #default>
-              <form-contacts
-                :editMode="editModeContacts"
-                @setEditMode="changeEditMode('contacts')"
-              />
-            </template>
-          </cart-order-block>
-
-          <cart-order-block title="Доставка" :isOpenBlock="isOpenBlockDelivery">
-            <template #header v-if="!editModeDelivery">
-              <div @click="changeEditMode('delivery')" class="order__edit">
-                Редагувати
-              </div>
-            </template>
-            <template #default>
-              <form-delivery
-                :editMode="editModeDelivery"
-                @setEditMode="changeEditMode('delivery')"
-              />
-            </template>
-          </cart-order-block>
-
-          <cart-order-block title="Оплата" :isOpenBlock="isOpenBlockPay">
-            <template #header v-if="!editModePay">
-              <div @click="changeEditMode('pay')" class="order__edit">Редагувати</div>
-            </template>
-            <template #default>
-              <form-pay :editMode="editModePay" @setEditMode="changeEditMode('pay')" />
-            </template>
-          </cart-order-block>
-        </div>
-        <div class="order__block-right">
-          <cart-order-block title="Ваше замовлення" :isOpenBlock="false">
-            <template #header>
-              <router-link class="order__edit" to="cart">Редагувати </router-link>
-            </template>
-            <template #default>
-              <order-blocks
-                item
-                :isNotEmpty="isNotEmpty && orderData.privacyPolicy === 'true'"
-              />
-            </template>
-          </cart-order-block>
-          <div v-if="isNotEmpty" class="privacy-policy">
-            <u-checkbox
-              name="privacyPolicy"
-              id="orderDeliveryPay"
-              :checked="checkedValuePrivacy === 'true' ? true : false"
-              :value="checkedValuePrivacy"
-              v-model:checked="checkedValuePrivacy"
-              @setValue="setValuePrivacyPolicy"
-            >
-              <div class="privacy-policy__item">
-                Підтверджуючи замовлння, я приймаю умови
-                <span>користувальницької угоди</span>
-              </div>
-            </u-checkbox>
-          </div>
+      <div class="order__block-right">
+        <cart-order-block title="Ваше замовлення" :isOpenBlock="false">
+          <template #header>
+            <router-link class="order__edit" to="cart">Редагувати </router-link>
+          </template>
+          <template #default>
+            <order-blocks
+              item
+              :isNotEmpty="isNotEmpty && orderData.privacyPolicy === 'true'"
+            />
+          </template>
+        </cart-order-block>
+        <div v-if="isNotEmpty" class="privacy-policy">
+          <u-checkbox
+            name="privacyPolicy"
+            id="orderDeliveryPay"
+            :checked="checkedValuePrivacy === 'true' ? true : false"
+            :value="checkedValuePrivacy === 'true' ? true : false"
+            v-model:checked="checkedValuePrivacy"
+            @setValue="setValuePrivacyPolicy"
+          >
+            <div class="privacy-policy__item">
+              Підтверджуючи замовлння, я приймаю умови
+              <span>користувальницької угоди</span>
+            </div>
+          </u-checkbox>
         </div>
       </div>
-    </container>
-  </div>
+    </div>
+  </wrap-page>
 </template>
 
 <style lang="scss" scoped>
 @import "../styles/global.scss";
 
 .order {
-  background: var(--bg-grey);
-  height: 100%;
-
-  &__logo {
-    @include flex(center);
-  }
-
-  &__link {
-    max-width: 157px;
-    max-height: 100px;
-
-    @media (max-width: 768px) {
-      max-width: 141px;
-      max-height: 90px;
-    }
-
-    @media (max-width: 768px) {
-      max-width: 110px;
-      max-height: 70px;
-    }
-  }
-
   &__wrap {
     padding: 36px 0;
     @include flex(center);
@@ -232,6 +213,7 @@ watch(
       }
     }
   }
+
   .order__edit {
     font-family: var(--special-font);
     font-size: 0.875rem;
@@ -240,6 +222,7 @@ watch(
     color: var(--grey-dark);
     cursor: pointer;
   }
+
   .privacy-policy {
     margin-top: 30px;
 

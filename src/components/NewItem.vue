@@ -42,8 +42,6 @@ const newText = computed(() => {
   </div>
 </template>
 
-
-
 <style lang="scss" scoped>
 .item {
   max-height: 351px;

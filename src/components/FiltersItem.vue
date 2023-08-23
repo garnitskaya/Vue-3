@@ -52,7 +52,6 @@ const filterChange = (name) => {
   </div>
 </template>
 
-
 <style lang="scss" scoped>
 .filters {
   display: flex;

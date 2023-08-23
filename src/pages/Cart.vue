@@ -43,7 +43,9 @@ const incrementItem = (index) => {
           >
             {{ cartItems.length }} товара
           </div>
-          <div class="cart__quantity" v-else>{{ cartItems.length }} товарів</div>
+          <div class="cart__quantity" v-else>
+            {{ cartItems.length }} товарів
+          </div>
         </template>
         <template #default>
           <div class="cart__items">

@@ -8,7 +8,7 @@ const props = defineProps({
   },
   isOpenBlock: {
     type: Boolean,
-    required: true,
+    required: false,
   },
 });
 const isOpenBlock = ref(props.isOpenBlock);

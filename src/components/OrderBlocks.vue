@@ -7,6 +7,7 @@ import { calcTotalPrice, calcTotalDiscount } from "@/utils/calcTotalPrice.js";
 
 const { getters } = useStore();
 const cartItems = computed(() => getters.cart);
+const orderData = computed(() => getters.orderData);
 
 const router = useRouter();
 
@@ -26,6 +27,9 @@ const props = defineProps({
 const sendOrder = () => {
   if (!props.isNotEmpty) return;
   router.push("thanks");
+  console.log(orderData.value);
+  orderData.value = {};
+  localStorage.clear();
 };
 </script>
 

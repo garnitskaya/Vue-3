@@ -33,7 +33,13 @@ const links = [
 <template>
   <nav :class="['menu', { active: active }]">
     <div class="menu__links">
-      <a @click="openMenu" v-for="link in links" :key="link" :href="link.id" class="menu__link">
+      <a
+        @click="openMenu"
+        v-for="link in links"
+        :key="link"
+        :href="link.id"
+        class="menu__link"
+      >
         {{ link.name }}
       </a>
     </div>
@@ -42,7 +48,12 @@ const links = [
       <img src="/icons/gb.svg" alt="eng" />
     </div>
     <div class="menu__icons">
-      <social-link black v-for="link in linksSocials" :key="link.name" :link="link" fill="#2D2D2D" />
+      <social-link
+        v-for="link in linksSocials"
+        :key="link.name"
+        :link="link"
+        fill="#2D2D2D"
+      />
     </div>
   </nav>
 </template>
@@ -100,7 +111,7 @@ const links = [
   &__lang {
     margin-top: 16px;
 
-    >img {
+    > img {
       cursor: pointer;
     }
 

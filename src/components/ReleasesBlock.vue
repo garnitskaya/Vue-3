@@ -35,9 +35,7 @@ import ButtonArrow from "@/components/ButtonArrow.vue";
   </div>
 </template>
 
-
-
-<style lang="scss" >
+<style lang="scss">
 .releases {
   &__container {
     @media (max-width: 1024px) {

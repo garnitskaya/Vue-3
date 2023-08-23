@@ -32,7 +32,11 @@ const submitForm = () => {
       name="delivery"
       v-model:checkedValue="checkedValue"
     />
-    <u-button :disabled="!checkedValue" class="form__btn" styles="red" size="big"
+    <u-button
+      :disabled="!checkedValue"
+      class="form__btn"
+      styles="red"
+      size="big"
       >Продовжити оформлення
     </u-button>
   </form>

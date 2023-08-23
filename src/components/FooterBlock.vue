@@ -37,8 +37,6 @@ const links = [
   </footer>
 </template>
 
-
-
 <style lang="scss" scoped>
 .footer {
   padding: 24px 0 20px;

@@ -1,50 +1,47 @@
 <script setup>
-  import { computed, ref, onMounted, watch } from 'vue'
-  import { useRoute } from 'vue-router'
-  import { useStore } from 'vuex'
+import { computed, ref, onMounted, watch } from "vue";
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 
-  const { getters } = useStore()
-  const product = computed(() => getters.product)
+const { getters } = useStore();
+const product = computed(() => getters.product);
 
-  const breadcrumbs = computed(() => ({
-    store: 'Мерч',
-    cart: 'Повернутись до покупок',
-    [`store/${product.value?.id}`]: product.value?.title,
-  }))
+const breadcrumbs = computed(() => ({
+  store: "Мерч",
+  cart: "Повернутись до покупок",
+  [`store/${product.value?.id}`]: product.value?.title,
+}));
 
-  const route = useRoute()
-  const links = ref([])
+const route = useRoute();
+const links = ref([]);
 
-  const updateLinks = () => {
-    const routePaths = route.path.split('/').filter((path) => path)
+const updateLinks = () => {
+  const routePaths = route.path.split("/").filter((path) => path);
 
-    links.value = routePaths.reduce((acc, curPath, i) => {
-      const prevPath = acc[i - 1]
-      const link = prevPath ? `${prevPath}/${curPath}` : curPath
-      return [...acc, link]
-    }, [])
+  links.value = routePaths.reduce((acc, curPath, i) => {
+    const prevPath = acc[i - 1];
+    const link = prevPath ? `${prevPath}/${curPath}` : curPath;
+    return [...acc, link];
+  }, []);
 
-    const keys = Object.keys(route.query)
-    keys.forEach((key) => {
-      const value = route.query[key]
-      links.value.push(`${key}=${value}`)
-    })
-  }
+  const keys = Object.keys(route.query);
+  keys.forEach((key) => {
+    const value = route.query[key];
+    links.value.push(`${key}=${value}`);
+  });
+};
 
-  onMounted(() => updateLinks())
+onMounted(() => updateLinks());
 
-  watch(
-    () => product.value.id,
-    () => updateLinks()
-  )
+watch(
+  () => product.value.id,
+  () => updateLinks()
+);
 </script>
 
 <template>
   <div class="breadcrumbs">
-    <router-link
-      to="/"
-      class="breadcrumbs__link"
-    >
+    <router-link to="/" class="breadcrumbs__link">
       <svg
         width="18"
         height="18"
@@ -67,11 +64,7 @@
       </svg>
     </router-link>
 
-    <span
-      class="breadcrumbs__link"
-      v-for="link in links"
-      :key="link"
-    >
+    <span class="breadcrumbs__link" v-for="link in links" :key="link">
       <svg
         class="separator"
         width="15"
@@ -87,17 +80,11 @@
           stroke-linejoin="round"
         />
       </svg>
-      <router-link
-        v-if="link === 'cart'"
-        :to="'/store'"
-      >
+      <router-link v-if="link === 'cart'" :to="'/store'">
         {{ breadcrumbs[link] }}
       </router-link>
 
-      <router-link
-        v-else
-        :to="'/' + link"
-      >
+      <router-link v-else :to="'/' + link">
         {{ breadcrumbs[link] }}
       </router-link>
     </span>
@@ -105,20 +92,20 @@
 </template>
 
 <style lang="scss" scoped>
-  .breadcrumbs {
-    margin-top: 24px;
+.breadcrumbs {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  font-family: var(--special-font);
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
+  color: var(--grey-dark);
+  &__link {
     display: flex;
     align-items: center;
-    font-family: var(--special-font);
-    font-size: 0.875rem;
-    line-height: 1.3125rem;
-    color: var(--grey-dark);
-    &__link {
-      display: flex;
-      align-items: center;
-    }
-    .separator {
-      margin: 0 4px;
-    }
   }
+  .separator {
+    margin: 0 4px;
+  }
+}
 </style>

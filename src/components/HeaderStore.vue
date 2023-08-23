@@ -33,7 +33,11 @@ watch(cartItems.value, () =>
       <div class="header-store__wrap">
         <hamburger color="black" :active="isMenuOpen" @menuClick="openMenu" />
         <div :class="['header-store__menu', { active: isMenuOpen }]">
-          <menu-link v-for="link in links.slice(0, 2)" :key="link.name" :link="link" />
+          <menu-link
+            v-for="link in links.slice(0, 2)"
+            :key="link.name"
+            :link="link"
+          />
         </div>
 
         <div class="header-store__icons">

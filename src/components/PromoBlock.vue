@@ -19,8 +19,6 @@ const props = defineProps({
   </div>
 </template>
 
-
-
 <style lang="scss" scoped>
 .promo-block {
   & > div:not(:last-child) {

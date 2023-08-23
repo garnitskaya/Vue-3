@@ -13,7 +13,7 @@ const store = createStore({
       delivery: localStorage.getItem("delivery") || "",
       pay: localStorage.getItem("pay") || "",
       order: JSON.parse(localStorage.getItem("itemsCard")) || [],
-      privacyPolicy:localStorage.getItem("privacyPolicy") || 'true',
+      privacyPolicy: localStorage.getItem("privacyPolicy") || 'true',
     },
   }),
   getters: {

@@ -1,37 +1,37 @@
 <script setup>
-  import { onMounted, computed } from 'vue'
-  import { useStore } from 'vuex'
-  import MerchItem from '@/components/MerchItem/MerchItem.vue'
-  import ButtonArrow from '@/components/ButtonArrow.vue'
-  import Skeleton from '@/components/MerchItem/Skeleton.vue'
+import { onMounted, computed } from "vue";
+import { useStore } from "vuex";
+import MerchItem from "@/components/MerchItem/MerchItem.vue";
+import ButtonArrow from "@/components/ButtonArrow.vue";
+import Skeleton from "@/components/MerchItem/Skeleton.vue";
 
-  const props = defineProps({
-    link: {
-      type: Boolean,
-      default: false,
-    },
-    bg: {
-      type: Boolean,
-      default: false,
-    },
-    title: {
-      type: String,
-      required: false,
-    },
-    left: {
-      type: Boolean,
-      required: false,
-    },
-  })
+const props = defineProps({
+  link: {
+    type: Boolean,
+    default: false,
+  },
+  bg: {
+    type: Boolean,
+    default: false,
+  },
+  title: {
+    type: String,
+    required: false,
+  },
+  left: {
+    type: Boolean,
+    required: false,
+  },
+});
 
-  const { getters, dispatch } = useStore()
-  const products = computed(() => getters.products)
-  const isLoading = computed(() => getters.isLoading)
-  const fetchProducts = () => dispatch('fetchingProducts')
+const { getters, dispatch } = useStore();
+const products = computed(() => getters.products);
+const isLoading = computed(() => getters.isLoading);
+const fetchProducts = () => dispatch("fetchingProducts");
 
-  onMounted(() => {
-    fetchProducts()
-  })
+onMounted(() => {
+  fetchProducts();
+});
 </script>
 
 <template>
@@ -56,10 +56,7 @@
             :item="item"
           />
 
-          <skeleton
-            v-else
-            v-for="item in 4"
-          />
+          <skeleton v-else v-for="item in 4" />
         </div>
         <div class="merch-block__bnt btn-arrow">
           <button-arrow styles="left" />
@@ -71,37 +68,37 @@
 </template>
 
 <style lang="scss" scoped>
-  .merch-block {
-    background: var(--bg-grey);
-    &__container {
-      @media (max-width: 1024px) {
-        padding: 0 !important;
-      }
-    }
-    &__wrap {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-    }
-    &__items {
-      width: 100%;
-      display: flex;
-      gap: 24px;
-      @media (max-width: 1024px) {
-        justify-content: center;
-      }
-      @media (max-width: 576px) {
-        gap: 16px;
-      }
-    }
-    &__item {
-      flex: 1;
-      @media (max-width: 992px) {
-        flex: 0 0 276px;
-      }
-      @media (max-width: 480px) {
-        flex: 0 0 160px;
-      }
+.merch-block {
+  background: var(--bg-grey);
+  &__container {
+    @media (max-width: 1024px) {
+      padding: 0 !important;
     }
   }
+  &__wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  &__items {
+    width: 100%;
+    display: flex;
+    gap: 24px;
+    @media (max-width: 1024px) {
+      justify-content: center;
+    }
+    @media (max-width: 576px) {
+      gap: 16px;
+    }
+  }
+  &__item {
+    flex: 1;
+    @media (max-width: 992px) {
+      flex: 0 0 276px;
+    }
+    @media (max-width: 480px) {
+      flex: 0 0 160px;
+    }
+  }
+}
 </style>

@@ -25,7 +25,6 @@ const props = defineProps({
   </div>
 </template>
 
-
 <style lang="scss" scoped>
 .block {
   margin-left: -10px;

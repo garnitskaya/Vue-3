@@ -11,7 +11,6 @@ const props = defineProps({
 });
 </script>
 
-
 <template>
   <svg
     :width="size"
@@ -34,5 +33,4 @@ const props = defineProps({
   </svg>
 </template>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

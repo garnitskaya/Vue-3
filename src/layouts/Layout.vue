@@ -1,4 +1,4 @@
-<script >
+<script>
 import { defineComponent } from "vue";
 import HeaderMenu from "@/components/HeaderMenu.vue";
 import FooterBlock from "@/components/FooterBlock.vue";
@@ -9,8 +9,8 @@ export default defineComponent({
   props: {
     menu: {
       type: Boolean,
-      default:true
-    }
+      default: true,
+    },
   },
   setup() {
     const linksSocials = [

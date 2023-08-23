@@ -1,5 +1,5 @@
 <script setup>
-  import Breadcrumbs from '@/components/Breadcrumbs.vue'
+import Breadcrumbs from "@/components/Breadcrumbs.vue";
 </script>
 
 <template>
@@ -14,16 +14,16 @@
 </template>
 
 <style lang="scss" scoped>
-  .store {
-    padding: 60px 0 0;
+.store {
+  padding: 60px 0 0;
 
-    @media (max-width: 480px) {
-      padding: 48px 0 0;
-    }
-
-    &__wrap {
-      display: flex;
-      flex-direction: column;
-    }
+  @media (max-width: 480px) {
+    padding: 48px 0 0;
   }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>

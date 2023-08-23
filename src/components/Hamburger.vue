@@ -21,7 +21,6 @@ const clickOnMenu = () => {
 };
 </script>
 
-
 <template>
   <div :class="['hamburger', `hamburger-${color}`]">
     <div

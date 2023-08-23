@@ -84,7 +84,12 @@ watch(
             </span>
           </div>
         </div>
-        <u-button @addItems="onAddItems" class="item__btn" size="big" styles="red">
+        <u-button
+          @addItems="onAddItems"
+          class="item__btn"
+          size="big"
+          styles="red"
+        >
           Додати у кошик
         </u-button>
         <div class="item__social">
@@ -100,7 +105,9 @@ watch(
             fill="#2D2D2D"
           />
         </div>
-        <a class="item__shipping" href="#"> Способи доставки та безкоштовна доставка </a>
+        <a class="item__shipping" href="#">
+          Способи доставки та безкоштовна доставка
+        </a>
         <a class="item__payment" href="#"> Способи оплати </a>
       </div>
     </div>

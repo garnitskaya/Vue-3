@@ -1,38 +1,41 @@
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'u-button',
-  emits: ['addItems'],
+  name: "u-button",
+  emits: ["addItems"],
   props: {
     styles: {
       type: String,
       required: true,
       validator(value) {
-        return ['warning', 'red', 'outlined', 'grey'].includes(value)
+        return ["warning", "red", "outlined", "grey"].includes(value);
       },
     },
     size: {
       type: String,
       required: false,
       validator(value) {
-        return ['big', 'small'].includes(value)
+        return ["big", "small"].includes(value);
       },
     },
   },
 
   setup(props, { emit }) {
     const onClickButton = () => {
-      emit('addItems')
-    }
+      emit("addItems");
+    };
 
-    return { onClickButton }
+    return { onClickButton };
   },
-})
+});
 </script>
 
 <template>
-  <button @click="onClickButton" :class="['btn', `btn_${styles}`, `btn_${size}`]">
+  <button
+    @click="onClickButton"
+    :class="['btn', `btn_${styles}`, `btn_${size}`]"
+  >
     <slot />
   </button>
 </template>

@@ -21,7 +21,11 @@ const formData = reactive(
 );
 
 const submitForm = () => {
-  if (formData.nameField === "" || formData.emailField === "" || formData.telField === "")
+  if (
+    formData.nameField === "" ||
+    formData.emailField === "" ||
+    formData.telField === ""
+  )
     return;
   dispatch("orderData", { contacts: formData });
   emits("setEditMode");
