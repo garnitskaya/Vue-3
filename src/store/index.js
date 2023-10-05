@@ -13,6 +13,7 @@ const store = createStore({
       delivery: localStorage.getItem("delivery") || "",
       pay: localStorage.getItem("pay") || "",
       order: JSON.parse(localStorage.getItem("itemsCard")) || [],
+      promocode: localStorage.getItem("promocode") || null,
       privacyPolicy: localStorage.getItem("privacyPolicy") || "true",
     },
   }),
@@ -80,6 +81,7 @@ const store = createStore({
         delivery: "",
         pay: "",
         order: [],
+        promocode: null,
         privacyPolicy: "true",
       }
     },

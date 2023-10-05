@@ -12,7 +12,7 @@ const orderData = computed(() => getters.orderData);
 
 const router = useRouter();
 
-const promocode = ref(null);
+const promocode = ref(localStorage.getItem("promocode") || null);
 
 const props = defineProps({
   item: {
@@ -24,6 +24,10 @@ const props = defineProps({
     default: false,
   },
 });
+
+const savePromocode = () => {
+  localStorage.setItem("promocode", promocode.value);
+};
 
 const sendOrder = () => {
   if (!props.isNotEmpty) return;
@@ -66,7 +70,12 @@ const sendOrder = () => {
           placeholder="Якщо є"
           v-model="promocode"
         />
-        <u-button class="order-block__button" styles="grey">ОК</u-button>
+        <u-button
+          @click="savePromocode"
+          class="order-block__button"
+          styles="grey"
+          >ОК</u-button
+        >
       </div>
     </div>
     <div v-if="promocode === 'HELLO'" class="order-block block-border">
