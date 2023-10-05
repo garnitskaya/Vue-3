@@ -66,6 +66,11 @@ const filterChange = (name) => {
   &__btn {
     background: none;
     cursor: pointer;
+    border-bottom: 1.5px solid transparent;
+    transition: border 0.4s;
+    &:not(.active):hover {
+      border-bottom: 1.5px solid var(--red);
+    }
     &-releases {
       font-family: var(--special-font);
       font-size: 1rem;

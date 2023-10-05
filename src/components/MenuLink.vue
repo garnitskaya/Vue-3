@@ -22,6 +22,11 @@ const props = defineProps({
   font-weight: 300;
   font-size: 0.875rem;
   line-height: 1.1875rem;
+  border-bottom: 1.5px solid transparent;
+  transition: border 0.4s;
+  &:hover {
+    border-bottom: 1.5px solid;
+  }
   &-white {
     color: var(--white);
   }

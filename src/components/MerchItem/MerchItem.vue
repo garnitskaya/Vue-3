@@ -49,7 +49,10 @@ const props = defineProps({
   min-height: 399px;
   border: 1px solid var(--grey-dark-opacity);
   border-radius: 10px;
-
+  transition: opacity 0.4s;
+  &:hover {
+    opacity: 0.8;
+  }
   @media (max-width: 768px) {
     max-width: 252px;
     min-height: 373px;

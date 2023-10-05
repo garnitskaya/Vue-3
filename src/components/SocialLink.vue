@@ -44,10 +44,15 @@ export default defineComponent({
   width: 24px;
   height: 24px;
   cursor: pointer;
-
+  > svg {
+    transition: transform 0.4s;
+  }
   &_big {
     width: 32px;
     height: 32px;
+  }
+  > :hover {
+    transform: scale(1.1);
   }
 }
 </style>
